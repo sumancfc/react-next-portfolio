@@ -1,0 +1,107 @@
+.header-left {
+  background: $colorBackground;
+  width: 80px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  border-right: 1px solid $colorLightGray;
+
+  .logo {
+    a {
+      background: $colorBlue;
+      color: $colorWhite;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      display: inline-block;
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+
+  .nav-toggle {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    left: 300px;
+    top: 20px;
+    border: 1px solid var(--border-dark);
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--bg-light);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+
+    span {
+      position: relative;
+      width: 16px;
+      height: 2px;
+      display: inline-block;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 2px;
+        top: -7px;
+        left: 0;
+        z-index: 100;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 2px;
+        top: 7px;
+        left: 0;
+        z-index: 100;
+      }
+    }
+  }
+
+  .nav {
+    padding: 45px 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    list-style: none;
+
+    .nav-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      border-bottom: 1px solid $colorLightGray;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .nav-link {
+        margin: 0;
+        padding: 0.5rem 0;
+        color: $colorWhite;
+        text-decoration: none;
+        transition: all 0.35s ease;
+        text-align: center;
+        font-size: 27px;
+
+        &.active {
+          color: $colorBlue;
+        }
+
+        .icons {
+          width: 27px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,175 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none !important;
+}
+
+body {
+  background: $colorBlack;
+  color: $colorWhite;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.7;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $colorWhite;
+}
+
+.full-screen {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+}
+
+.section {
+  width: calc(100% - 80px);
+  display: block;
+  top: 0;
+  left: 80px;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  opacity: 1;
+  padding: 0 30px;
+  transition: all 0.4s ease;
+}
+
+.container {
+  padding: 0 20px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  //   margin: 0 -15px;
+  margin: auto;
+}
+
+.p-15 {
+  padding: 0 15px;
+}
+
+.section-title {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+
+  h2 {
+    margin: 0;
+    color: $colorWhite;
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+    font-size: 30px;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+.btn {
+  padding: 0 25px;
+  line-height: 42px;
+  position: relative;
+  display: inline-block;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: 0.4s;
+  letter-spacing: 0.3px;
+  cursor: pointer !important;
+  background: $colorBlue;
+  color: $colorWhite;
+
+  .icons {
+    width: 20px;
+    margin-left: 7px;
+  }
+
+  &:last-child {
+    margin-left: 1rem;
+    background: transparent;
+    border: 1px solid $colorBlue;
+  }
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.col-6 {
+  width: 50%;
+  flex: 0 0 auto;
+}
+
+.col-12 {
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.text-blue {
+  color: $colorBlue;
+}
+
+.w-35 {
+  width: 35%;
+  flex: 0 0 auto;
+}
+
+.w-60 {
+  width: 60%;
+  flex: 0 0 auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}

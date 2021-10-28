@@ -1,0 +1,79 @@
+.contact-section {
+  position: relative;
+  padding: 100px 0;
+
+  .contact-info {
+    margin: 10px 0;
+
+    h4 {
+      font-size: 34px;
+      color: $colorWhite;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 25px;
+      color: $colorGray;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    .media {
+      margin-top: 1rem;
+      li {
+        padding-top: 20px;
+        .icons {
+          width: 32px;
+          margin-right: 10px;
+          color: $colorBlue;
+        }
+
+        .media-info {
+          font-size: 18px;
+          font-weight: 500;
+          color: $colorGray;
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    margin: 10px 0;
+
+    h4 {
+      font-weight: 500;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+
+      .form-control {
+        width: 100%;
+        height: 42px;
+        border: 1px solid $colorGray;
+        padding: 10px 25px;
+        font-size: 14px;
+        color: $colorWhite;
+        transition: all 0.3s ease;
+        background: transparent;
+      }
+
+      textarea.form-control {
+        height: 100px;
+      }
+      .btn {
+        height: 42px;
+        margin: 0;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+.portfolio-section {
+  .portfolio-filter {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+
+    button {
+      background-color: transparent;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: capitalize;
+      margin: 0 10px;
+      color: var(--clr-heading);
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      padding-bottom: 2px;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .portfolio-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    margin-bottom: 30px;
+
+    &.hide {
+      display: none;
+    }
+
+    &.show {
+      display: block;
+      animation: showPortfolio 0.5s ease;
+    }
+
+    .portfolio-info {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      padding: 30px;
+      opacity: 0;
+      transition: all 0.3s ease;
+
+      h4 {
+        font-size: 16px;
+        font-weight: 700;
+        color: $colorWhite;
+        text-transform: capitalize;
+        transition: all 0.3s ease;
+        transform: translateX(-20px);
+        opacity: 0;
+      }
+
+      .icon {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: $colorWhite;
+        text-align: center;
+        border-radius: 50%;
+        right: 50px;
+        bottom: 20px;
+        transition: all 0.3s ease;
+        transform: translateX(-20px);
+        opacity: 0;
+
+        .fa {
+          line-height: 40px;
+        }
+      }
+    }
+  }
+
+  .portfolio-item-inner {
+    position: relative;
+    border: 5px solid var(--bg-light);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+
+    .portfolio-img {
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    &:hover {
+      .portfolio-info {
+        opacity: 1;
+
+        .icon,
+        h4 {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@-webkit-keyframes showPortfolio {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes showPortfolio {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

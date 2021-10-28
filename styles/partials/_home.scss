@@ -1,0 +1,108 @@
+.home-section {
+  position: relative;
+  overflow: hidden;
+
+  .home-top {
+    position: absolute;
+    padding: 30px 50px 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+
+    .information {
+      a {
+        margin: 0;
+        color: #fff;
+        font-weight: 400;
+        font-size: 14px;
+        transition: 0.3s;
+
+        &:last-child {
+          margin-left: 40px;
+        }
+
+        &:hover {
+          color: $colorBlue;
+        }
+      }
+    }
+
+    .language {
+      li {
+        &.active {
+          background: $colorBlue;
+        }
+
+        &:last-child {
+          margin-left: 10px;
+        }
+
+        a {
+          color: #fff;
+          font-size: 14px;
+          padding: 5px 8px;
+        }
+      }
+    }
+  }
+
+  .introduction {
+    .type-text {
+      padding: 90px 0 50px 0;
+
+      h6 {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0 0 12px;
+      }
+
+      h1 {
+        font-size: 70px;
+        font-weight: 700;
+        line-height: 1;
+        margin: 0 0 12px;
+        text-transform: uppercase;
+      }
+
+      h4 {
+        margin-bottom: 12px;
+        font-size: 24px;
+        font-weight: 500;
+        color: $colorBlue;
+      }
+
+      .desc {
+        color: $colorGray;
+        max-width: 450px;
+      }
+    }
+
+    @media screen and (min-width: 991px) {
+      flex: 0 0 auto;
+      width: 60%;
+    }
+  }
+
+  .home-image {
+    position: absolute;
+    right: 0;
+    width: 50vw;
+    height: 100%;
+    background-size: cover !important;
+    top: 0;
+    background-repeat: no-repeat !important;
+    background-position: 0 0 !important;
+    z-index: -1;
+
+    @media screen and (max-width: 1199px) {
+      width: 84vw;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 991px) {
+      opacity: 0.6;
+      width: 80vw;
+    }
+  }
+}
