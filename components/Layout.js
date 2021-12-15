@@ -1,11 +1,11 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import Menu from "../data/Menu";
+import { menus } from "../data/menu";
 
 const Layout = ({ children }) => {
   return (
     <div className='page-wrapper'>
-      <Header menus={Menu} />
+      <Header menus={menus} />
 
       {children}
 

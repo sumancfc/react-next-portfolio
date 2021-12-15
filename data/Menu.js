@@ -1,4 +1,4 @@
-const Menu = [
+export const menus = [
   { id: "1", title: "", icon: "HomeIcon", link: "/" },
   {
     id: "2",
@@ -25,5 +25,3 @@ const Menu = [
     link: "/contact-me",
   },
 ];
-
-export default Menu;

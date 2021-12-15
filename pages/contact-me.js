@@ -1,24 +1,8 @@
 import CustomHead from "../components/CustomHead";
 import HeroIcons from "../components/Icons";
+import { contacts } from "../data/contacts";
 
 const ContactPage = () => {
-  const details = [
-    {
-      id: "1",
-      info: "Kupandole, Lalitpur",
-      icon: "LocationMarkerIcon",
-    },
-    {
-      id: "2",
-      info: "+977-9860088834",
-      icon: "DeviceMobileIcon",
-    },
-    {
-      id: "3",
-      info: "sumanstha999@gmail.com",
-      icon: "MailIcon",
-    },
-  ];
   return (
     <>
       <CustomHead
@@ -41,10 +25,10 @@ const ContactPage = () => {
 
                 <div className='media'>
                   <ul>
-                    {details.map((detail) => (
-                      <li key={detail.id} className='d-flex align-center'>
-                        <HeroIcons icon={detail.icon} />
-                        <span className='media-info'>{detail.info}</span>
+                    {contacts.map((contact) => (
+                      <li key={contact.id} className='d-flex align-center'>
+                        <HeroIcons icon={contact.icon} />
+                        <span className='media-info'>{contact.info}</span>
                       </li>
                     ))}
                   </ul>
