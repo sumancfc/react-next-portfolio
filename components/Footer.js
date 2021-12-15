@@ -11,7 +11,7 @@ const Footer = () => {
           </div>
           <div className=''>
             <p className='m-0'>
-              &copy; 2021 copyright{" "}
+              &copy; {new Date().getFullYear()} copyright{" "}
               <Link href='/'>
                 <a className='text-blue' target='_blank'>
                   Suman Shrestha.

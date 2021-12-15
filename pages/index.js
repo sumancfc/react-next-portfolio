@@ -1,11 +1,15 @@
+import CustomHead from "../components/CustomHead";
 import BackgroundImage from "../components/BackgroundImage";
 import Hero from "../components/Hero";
-import Layout from "../components/Layout";
 import TopHeader from "../components/TopHeader";
 
-export default function Home() {
+const HomePage = () => {
   return (
-    <Layout pageTitle='Suman Shrestha | Frontend Developer From Nepal'>
+    <>
+      <CustomHead
+        title='Suman Shrestha | Frontend Developer From Nepal'
+        description=''
+      />
       <section className='home-section section d-flex' id='home'>
         <TopHeader />
 
@@ -16,6 +20,8 @@ export default function Home() {
           imageSrc='/img/home-banner.png'
         />
       </section>
-    </Layout>
+    </>
   );
-}
+};
+
+export default HomePage;

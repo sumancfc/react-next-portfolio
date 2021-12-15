@@ -1,8 +1,9 @@
-import Layout from "../components/Layout";
+import CustomHead from "../components/CustomHead";
 
-const Services = () => {
+const ServicesPage = () => {
   return (
-    <Layout pageTitle='Services'>
+    <>
+      <CustomHead title='Experience' description='' />
       <section className='service-section section' id='services'>
         <div className='container'>
           <div className='row'>
@@ -104,8 +105,8 @@ const Services = () => {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
-export default Services;
+export default ServicesPage;

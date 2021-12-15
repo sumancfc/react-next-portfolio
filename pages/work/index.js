@@ -1,7 +1,15 @@
-import Layout from "../../components/Layout";
+import CustomHead from "../../components/CustomHead";
 
-const Portfolio = () => {
-  return <Layout pageTitle='My Portfolio'>This is Portfolio Page</Layout>;
+const WorkPage = () => {
+  return (
+    <>
+      <CustomHead
+        title='Work - Suman Shrestha | Frontend Developer From Nepal'
+        description=''
+      />
+      This is Work Page
+    </>
+  );
 };
 
-export default Portfolio;
+export default WorkPage;

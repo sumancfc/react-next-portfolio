@@ -1,7 +1,7 @@
+import CustomHead from "../components/CustomHead";
 import HeroIcons from "../components/Icons";
-import Layout from "../components/Layout";
 
-const ContactMe = () => {
+const ContactPage = () => {
   const details = [
     {
       id: "1",
@@ -20,7 +20,11 @@ const ContactMe = () => {
     },
   ];
   return (
-    <Layout pageTitle='Contact Me'>
+    <>
+      <CustomHead
+        title='Contact - Suman Shrestha | Frontend Developer From Nepal'
+        description=''
+      />
       <section className='contact-section section' id='contact'>
         <div className='container'>
           <div className='row'>
@@ -112,8 +116,8 @@ const ContactMe = () => {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
-export default ContactMe;
+export default ContactPage;

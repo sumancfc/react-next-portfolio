@@ -3,10 +3,13 @@ import CustomHead from "../components/CustomHead";
 import BackgroundImage from "../components/BackgroundImage";
 import Services from "../components/Services";
 
-const AboutPage = () => {
+const ExperiencePage = () => {
   return (
     <>
-      <CustomHead title='About Me' description='' />
+      <CustomHead
+        title='Experience - Suman Shrestha | Frontend Developer From Nepal'
+        description=''
+      />
       <section className='about-section section' id='about'>
         <div className='container'>
           <div className='row d-flex justify-between align-center'>
@@ -208,4 +211,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default ExperiencePage;
