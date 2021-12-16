@@ -8,6 +8,13 @@
   height: 100vh;
   border-right: 1px solid $colorLightGray;
 
+  @media #{$sm} {
+    transition: all 0.35s ease;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    z-index: 222;
+  }
+
   .logo {
     a {
       background: $colorRed;

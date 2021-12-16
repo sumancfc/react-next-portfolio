@@ -11,6 +11,10 @@
     right: 0;
     z-index: 5;
 
+    @media #{$sm} {
+      display: none;
+    }
+
     .information {
       a {
         margin: 0;
@@ -56,6 +60,10 @@
         font-size: 20px;
         font-weight: 400;
         margin: 0 0 12px;
+
+        @media #{$xsm} {
+          margin-bottom: 6px;
+        }
       }
 
       h1 {
@@ -64,6 +72,14 @@
         line-height: 1;
         margin: 0 0 12px;
         text-transform: uppercase;
+
+        @media #{$sm} {
+          font-size: 32px;
+        }
+
+        @media #{$xsm} {
+          margin-bottom: 6px;
+        }
       }
 
       h4 {
@@ -71,18 +87,45 @@
         font-size: 24px;
         font-weight: 500;
         color: $colorRed;
+
+        @media #{$xsm} {
+          margin-bottom: 6px;
+        }
       }
 
       .desc {
         color: $colorGray;
         max-width: 450px;
+
+        @media #{$sm} {
+          font-size: 14px;
+        }
+      }
+
+      .home-btn {
+        margin-top: 1.5rem;
+        display: flex;
+
+        @media #{$xsm} {
+          margin-top: 0.75rem;
+        }
+
+        @media #{$tiny} {
+          flex-direction: column;
+        }
+
+        .btn:last-child {
+          @media #{$tiny} {
+            margin: 0.75rem 0 0;
+          }
+        }
       }
     }
 
-    @media screen and (min-width: 991px) {
-      flex: 0 0 auto;
-      width: 60%;
-    }
+    // @media #{$md} {
+    //   flex: 0 0 auto;
+    //   width: 60%;
+    // }
   }
 
   .home-image {
@@ -96,14 +139,19 @@
     background-position: 0 0 !important;
     z-index: -1;
 
-    @media screen and (max-width: 1199px) {
+    @media #{$lg} {
       width: 84vw;
       opacity: 0.6;
     }
 
-    @media (max-width: 991px) {
+    @media #{$md} {
       opacity: 0.6;
       width: 80vw;
+    }
+
+    @media #{$sm} {
+      opacity: 0.4;
+      width: 102vw;
     }
   }
 }

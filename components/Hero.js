@@ -15,7 +15,7 @@ const Hero = () => {
               and online stores.
             </p>
 
-            <div className='mt-4 d-flex'>
+            <div className='home-btn'>
               <ButtonLink
                 textTitle='Download CV'
                 icon='DownloadIcon'
