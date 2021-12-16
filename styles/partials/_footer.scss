@@ -1,21 +1,39 @@
 /*======= footer =======*/
 .footer {
   position: relative;
-  padding: 12px 0;
+  padding: 12px 30px;
   background: $colorBackground;
   overflow: hidden;
 
-  ul {
-    li {
-      margin-right: 10px;
+  @media #{$tiny} {
+    padding: 12px;
+  }
 
-      &:last-child {
-        margin-right: 0;
+  .row {
+    @media #{$sm} {
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    ul {
+      li {
+        margin-right: 10px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .social-link {
+          display: flex;
+          align-items: center;
+        }
       }
+    }
 
-      .social-link {
-        display: flex;
-        align-items: center;
+    .copyright {
+      @media #{$sm} {
+        margin-top: 6px;
+        text-align: center;
       }
     }
   }

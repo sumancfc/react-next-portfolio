@@ -6,14 +6,14 @@ const Footer = () => {
     <footer className='footer section'>
       <div className='container'>
         <div className='row d-flex justify-between align-center'>
-          <div className=''>
+          <div>
             <SocialIcons />
           </div>
-          <div className=''>
-            <p className='m-0'>
+          <div>
+            <p className='copyright'>
               &copy; {new Date().getFullYear()} copyright{" "}
               <Link href='/'>
-                <a className='text-blue' target='_blank'>
+                <a className='copyright__text' target='_blank'>
                   Suman Shrestha.
                 </a>
               </Link>{" "}
