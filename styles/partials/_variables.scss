@@ -2,21 +2,15 @@
 $colorBackground: #0e0e17;
 $colorBlack: #000000;
 $colorWhite: #ffffff;
-$colorBlue: #ec1839;
+$colorRed: #ec1839;
 $colorGray: hsla(0, 0%, 100%, 0.8);
 $colorLightGray: hsla(0, 0%, 100%, 0.1);
 
-// :root {
-//   --bg-aside: #ededed;
-//   --bg-dark: #f2f2fc;
-//   --bg-light: #fdf9ff;
-//   --clr-heading: #302e4d;
-//   --clr-text: #504e70;
-//   --border-dark: #d4d4e3;
-//   --border-light: #e8dfec;
-//   --clr-red: #ec1839;
-//   --clr-blue: #2196f3;
-//   --clr-orange: #fafb0f;
-//   --clr-yellow: #ffb400;
-//   --clr-green: #72b626;
-// }
+// Responsive Variables
+$xxl: "(min-width: 1600px)";
+$xl: "(max-width: 1599px)";
+$lg: "(max-width: 1199px)";
+$md: "(max-width: 991px)";
+$sm: "(max-width: 767px)";
+$xsm: "(max-width: 575px)";
+$tiny: "(max-width: 399px)";

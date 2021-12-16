@@ -1,3 +1,4 @@
+/*======= home =======*/
 .home-section {
   position: relative;
   overflow: hidden;
@@ -23,7 +24,7 @@
         }
 
         &:hover {
-          color: $colorBlue;
+          color: $colorRed;
         }
       }
     }
@@ -31,7 +32,7 @@
     .language {
       li {
         &.active {
-          background: $colorBlue;
+          background: $colorRed;
         }
 
         &:last-child {
@@ -69,7 +70,7 @@
         margin-bottom: 12px;
         font-size: 24px;
         font-weight: 500;
-        color: $colorBlue;
+        color: $colorRed;
       }
 
       .desc {

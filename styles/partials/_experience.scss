@@ -1,5 +1,44 @@
+/*======= experience =======*/
 .experience-section {
   position: relative;
   background: $colorBlack;
   padding: 100px 0;
+
+  .experience-box {
+    padding-top: 15px;
+
+    .experience-row {
+      background: $colorBackground;
+      padding: 35px;
+      border-radius: 1rem;
+
+      .ex-left {
+        border-right: 1px solid hsla(0, 0%, 100%, 0.05);
+
+        h5 {
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 5px;
+        }
+
+        .ex-btn {
+          margin: 5px 0 0;
+          font-size: 13px;
+          font-weight: 500;
+          background-color: $colorRed;
+        }
+      }
+
+      .ml-5 {
+        margin-left: 5%;
+        .ex-right {
+          h5 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
 }

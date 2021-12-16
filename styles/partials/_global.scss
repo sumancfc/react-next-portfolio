@@ -1,10 +1,11 @@
+/*======= global =======*/
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: none !important;
+  outline: none;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
   color: $colorWhite;
   font-family: "Poppins", sans-serif;
   line-height: 1.7;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
 }
 
@@ -31,6 +32,8 @@ h4,
 h5,
 h6 {
   color: $colorWhite;
+  margin: 0;
+  padding: 0;
 }
 
 .full-screen {
@@ -56,19 +59,14 @@ h6 {
   transition: all 0.4s ease;
 }
 
-.container {
-  padding: 0 20px;
-}
-
 .hide {
-  display: none !important;
+  display: none;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  //   margin: 0 -15px;
   margin: auto;
 }
 
@@ -103,11 +101,11 @@ h6 {
   border-radius: 4px;
   font-size: 16px;
   font-weight: 500;
-  text-decoration: none !important;
+  text-decoration: none;
   transition: 0.4s;
   letter-spacing: 0.3px;
-  cursor: pointer !important;
-  background: $colorBlue;
+  cursor: pointer;
+  background: $colorRed;
   color: $colorWhite;
 
   .icons {
@@ -118,7 +116,7 @@ h6 {
   &:last-child {
     margin-left: 1rem;
     background: transparent;
-    border: 1px solid $colorBlue;
+    border: 1px solid $colorRed;
   }
 }
 
@@ -157,7 +155,7 @@ h6 {
 }
 
 .text-blue {
-  color: $colorBlue;
+  color: $colorRed;
 }
 
 .w-35 {

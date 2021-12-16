@@ -1,3 +1,4 @@
+/*======= header =======*/
 .header-left {
   background: $colorBackground;
   width: 80px;
@@ -9,7 +10,7 @@
 
   .logo {
     a {
-      background: $colorBlue;
+      background: $colorRed;
       color: $colorWhite;
       width: 80px;
       height: 80px;
@@ -95,7 +96,7 @@
         font-size: 27px;
 
         &.active {
-          color: $colorBlue;
+          color: $colorRed;
         }
 
         .icons {
