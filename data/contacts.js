@@ -1,12 +1,12 @@
 export const contacts = [
   {
     id: "1",
-    info: "Kupandole, Lalitpur",
+    info: "Hof, Bavaria, Germany",
     icon: "LocationMarkerIcon",
   },
   {
     id: "2",
-    info: "+977-9860088834",
+    info: "+4917685985727",
     icon: "DeviceMobileIcon",
   },
   {

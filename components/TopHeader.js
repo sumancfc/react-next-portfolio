@@ -2,7 +2,7 @@ const TopHeader = () => {
   return (
     <div className='home-top d-flex justify-between'>
       <div className='information'>
-        <a href='tel:+977-9860088834'>+977-9860088834</a>
+        <a href='tel:+4917685985727'>+4917685985727</a>
         <a href='mailto:sumanstha999@gmail.com'>sumanstha999@gmail.com</a>
       </div>
       <div className='language'>
