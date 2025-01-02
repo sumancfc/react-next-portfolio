@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import HeroIcons from "./Icons";
 import Logo from "./Logo";
@@ -12,7 +14,7 @@ const Header = ({ menus }) => {
       <ul className='nav'>
         {menus.map((menu) => (
           <li key={menu.id} className='nav-item'>
-            <Link href={menu.link}>
+            <Link href={menu.link} legacyBehavior>
               <a
                 className={
                   router.pathname == menu.link ? "active nav-link" : "nav-link"

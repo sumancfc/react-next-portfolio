@@ -1,5 +1,5 @@
-import CustomHead from "../components/CustomHead";
-import BackgroundImage from "../components/BackgroundImage";
+import CustomHead from "../../components/CustomHead";
+import BackgroundImage from "../../components/BackgroundImage";
 import NepaliDate from "nepali-date/cjs/NepaliDate";
 
 const ExperiencePage = () => {

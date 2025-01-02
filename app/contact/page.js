@@ -1,6 +1,6 @@
-import CustomHead from "../components/CustomHead";
-import HeroIcons from "../components/Icons";
-import { contacts } from "../data/contacts";
+import CustomHead from "../../components/CustomHead";
+import HeroIcons from "../../components/Icons";
+import { contacts } from "../../data/contacts";
 
 const ContactPage = () => {
   return (

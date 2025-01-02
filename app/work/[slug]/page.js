@@ -1,4 +1,4 @@
-import CustomHead from "../../components/CustomHead";
+import CustomHead from "../../../components/CustomHead";
 
 const WorkDetailsPage = () => {
   return (
