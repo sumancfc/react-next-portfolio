@@ -1,7 +1,7 @@
 import Image from "next/image";
-import CustomHead from "../components/CustomHead";
-import BackgroundImage from "../components/BackgroundImage";
-import Services from "../components/Services";
+import CustomHead from "../../components/CustomHead";
+import BackgroundImage from "../../components/BackgroundImage";
+import Services from "../../components/Services";
 
 const AboutPage = () => {
   return (

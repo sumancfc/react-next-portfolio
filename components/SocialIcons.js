@@ -7,7 +7,7 @@ const SocialIcons = () => {
     <ul className='d-flex align-center justify-between'>
       {socials.map((social) => (
         <li key={social.id}>
-          <Link href={social.link}>
+          <Link href={social.link} legacyBehavior>
             <a className='social-link' target='_blank'>
               <Image
                 src={social.src}

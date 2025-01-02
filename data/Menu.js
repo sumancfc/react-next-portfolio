@@ -4,7 +4,7 @@ export const menus = [
     id: "2",
     title: "",
     icon: "IdentificationIcon",
-    link: "/about-me",
+    link: "/about",
   },
   {
     id: "3",
@@ -22,6 +22,6 @@ export const menus = [
     id: "5",
     title: "",
     icon: "PhoneOutgoingIcon",
-    link: "/contact-me",
+    link: "/contact",
   },
 ];

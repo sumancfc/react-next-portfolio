@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <>
       <CustomHead
-        title='Suman Shrestha | Frontend Developer From Nepal'
+        title='Suman Shrestha | Frontend Developer'
         description=''
       />
       <section className='home-section section d-flex' id='home'>
@@ -15,10 +15,10 @@ const HomePage = () => {
 
         <Hero />
 
-        {/* <BackgroundImage
+        <BackgroundImage
           className='home-image'
           imageSrc='/img/home-banner.png'
-        /> */}
+        />
       </section>
     </>
   );
