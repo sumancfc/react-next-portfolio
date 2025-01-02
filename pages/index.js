@@ -15,10 +15,10 @@ const HomePage = () => {
 
         <Hero />
 
-        <BackgroundImage
+        {/* <BackgroundImage
           className='home-image'
           imageSrc='/img/home-banner.png'
-        />
+        /> */}
       </section>
     </>
   );
