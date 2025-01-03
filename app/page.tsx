@@ -1,15 +1,11 @@
-import CustomHead from "../components/CustomHead";
+import React from "react";
 import BackgroundImage from "../components/BackgroundImage";
 import Hero from "../components/Hero";
 import TopHeader from "../components/TopHeader";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
     <>
-      <CustomHead
-        title='Suman Shrestha | Frontend Developer'
-        description=''
-      />
       <section className='home-section section d-flex' id='home'>
         <TopHeader />
 

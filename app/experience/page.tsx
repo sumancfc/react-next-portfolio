@@ -1,25 +1,17 @@
-import CustomHead from "../../components/CustomHead";
-import BackgroundImage from "../../components/BackgroundImage";
-import NepaliDate from "nepali-date/cjs/NepaliDate";
+import React from "react";
+import { Metadata } from "next";
 
-const ExperiencePage = () => {
-  // const dates = ["2021-12-02T04:35:49.586Z", "2021-12-01T13:22:26.928"];
-  // const date = new Date("2021-12-02T04:35:49.586Z");
-  // const nepaliDate = new NepaliDate(date);
+export const metadata: Metadata = {
+  title: "Experience - Suman Shrestha | Software Engineer",
+};
 
-  // // Format date in nepali
-  // const presentTime = nepaliDate.format("mmmm d yyyy, dddd");
-
+const ExperiencePage: React.FC = () => {
   return (
     <>
-      <CustomHead
-        title='Experience - Suman Shrestha | Frontend Developer From Nepal'
-        description=''
-      />
       <section className='experience-section section' id='experience'>
         <div className='container'>
           <div className='section-title'>
-            <h2 className='title'>Services</h2>
+            <h2 className='title'>Experience</h2>
           </div>
           <div className='experience-box'>
             <div className='experience-row'>

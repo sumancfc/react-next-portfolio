@@ -1,14 +1,15 @@
-import CustomHead from "../../components/CustomHead";
+import React from "react";
+import type { Metadata } from "next";
 import HeroIcons from "../../components/Icons";
-import { contacts } from "../../data/contacts";
+import contacts from "../../data/contacts";
 
-const ContactPage = () => {
+export const metadata: Metadata = {
+  title: "Contact - Suman Shrestha | Software Engineer",
+};
+
+const ContactPage: React.FC = () => {
   return (
     <>
-      <CustomHead
-        title='Contact - Suman Shrestha | Frontend Developer From Nepal'
-        description=''
-      />
       <section className='contact-section section' id='contact'>
         <div className='container'>
           <div className='row'>
@@ -28,7 +29,9 @@ const ContactPage = () => {
                     {contacts.map((contact) => (
                       <li key={contact.id} className='d-flex align-center'>
                         <HeroIcons icon={contact.icon} />
-                        <span className='media-info'>{contact.info}</span>
+                        <span className='media-info'>
+                          {contact.information}
+                        </span>
                       </li>
                     ))}
                   </ul>

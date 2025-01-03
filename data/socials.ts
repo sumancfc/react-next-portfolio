@@ -1,4 +1,6 @@
-export const socials = [
+import { Social } from "./interfaces";
+
+const socials: Social[] = [
   {
     id: "1",
     name: "Github",
@@ -24,3 +26,5 @@ export const socials = [
     src: "/img/instagram.png",
   },
 ];
+
+export default socials;

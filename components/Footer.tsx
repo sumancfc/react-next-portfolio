@@ -12,11 +12,9 @@ const Footer = () => {
           <div>
             <p className='copyright'>
               &copy; {new Date().getFullYear()} copyright{" "}
-              <Link href='/' legacyBehavior>
-                <a className='copyright__text' target='_blank'>
-                  Suman Shrestha.
-                </a>
-              </Link>{" "}
+              <Link href='/' className='copyright__text' target='_blank'>
+                Suman Shrestha.
+              </Link>
               All right reserved.
             </p>
           </div>
