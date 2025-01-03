@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import TopHeader from "../components/TopHeader";
+import TopHeader from "../../components/TopHeader";
 
 describe("TopHeader component", () => {
   test("renders phone number and email", () => {
