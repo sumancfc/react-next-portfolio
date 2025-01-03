@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import HeroIcons from "./Icons";
+import Icon from "../data/enum";
 
 interface ButtonLinkProps {
   textTitle: string;
-  icon: string;
+  icon: Icon;
   link: string;
 }
 

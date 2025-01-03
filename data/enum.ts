@@ -9,6 +9,8 @@ enum Icon {
   MailIcon = "MailIcon",
   SpeakerphoneIcon = "SpeakerphoneIcon",
   CodeIcon = "CodeIcon",
+  DownloadIcon = "DownloadIcon",
+  EyeIcon = "EyeIcon",
 }
 
 export default Icon;

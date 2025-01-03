@@ -1,3 +1,4 @@
+import Icon from "../data/enum";
 import ButtonLink from "./ButtonLink";
 
 const Hero = () => {
@@ -18,10 +19,14 @@ const Hero = () => {
             <div className='home-btn'>
               <ButtonLink
                 textTitle='Download CV'
-                icon='DownloadIcon'
+                icon={Icon.DownloadIcon}
                 link='#'
               />
-              <ButtonLink textTitle='My Work' icon='EyeIcon' link='/work' />
+              <ButtonLink
+                textTitle='My Work'
+                icon={Icon.EyeIcon}
+                link='/work'
+              />
             </div>
           </div>
         </div>

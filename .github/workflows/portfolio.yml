@@ -1,7 +1,5 @@
 name: Personal Portfolio CI/CD
 
-run-name: ${{github.actor}}
-
 on: [push]
 
 jobs:
@@ -23,7 +21,7 @@ jobs:
           node-version: "20.15.1"
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install --force
 
       - name: Build Portfolio
         run: npm run build

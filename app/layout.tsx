@@ -5,10 +5,14 @@ import CustomHead from "../components/CustomHead";
 import MobileMenu from "../components/MobileMenu";
 import menus from "../data/menus";
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang='en-US'>
-      <CustomHead />
+      {/* <CustomHead /> */}
       <body>
         <div className='page-wrapper'>
           <MobileMenu />
