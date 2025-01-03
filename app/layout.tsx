@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import "../styles/style.scss";
+import { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MobileMenu from "../components/MobileMenu";

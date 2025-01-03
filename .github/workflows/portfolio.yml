@@ -21,7 +21,7 @@ jobs:
           node-version: "20.15.1"
 
       - name: Install Dependencies
-        run: npm install --force
+        run: npm install
 
       - name: Build Portfolio
         run: npm run build

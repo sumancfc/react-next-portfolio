@@ -11,10 +11,10 @@ const HomePage: React.FC = () => {
 
         <Hero />
 
-        <BackgroundImage
+        {/* <BackgroundImage
           className='home-image'
           imageSrc='/img/home-banner.png'
-        />
+        /> */}
       </section>
     </>
   );
