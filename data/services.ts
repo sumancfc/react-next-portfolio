@@ -1,11 +1,5 @@
 import Icon from "./enum";
-
-interface Service {
-  id: string;
-  title: string;
-  description: string;
-  icon: Icon;
-}
+import { Service } from "./interfaces";
 
 const services: Service[] = [
   {

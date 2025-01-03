@@ -1,9 +1,4 @@
-interface Social {
-  id: string;
-  name: string;
-  link: string;
-  src: string;
-}
+import { Social } from "./interfaces";
 
 const socials: Social[] = [
   {

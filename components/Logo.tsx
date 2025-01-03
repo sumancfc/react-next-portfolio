@@ -1,11 +1,14 @@
+import React from "react";
 import Link from "next/link";
 
-const Logo = ({ title }) => {
+interface LogoProps {
+  title: string;
+}
+
+const Logo: React.FC<LogoProps> = ({ title }) => {
   return (
     <div className='logo'>
-      <Link href='/' legacyBehavior>
-        <a>{title}</a>
-      </Link>
+      <Link href='/'>{title}</Link>
     </div>
   );
 };

@@ -8,7 +8,7 @@ const Hero = () => {
           <div className='type-text'>
             <h6>Hello, My name is</h6>
             <h1>Suman Shrestha</h1>
-            <h4>Full-Stack Developer</h4>
+            <h4>Software Engineer</h4>
             <p className='desc'>
               I design and develop services for customers of all sizes,
               specializing in creating stylish, modern websites, web services

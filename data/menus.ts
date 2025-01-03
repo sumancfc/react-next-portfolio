@@ -1,11 +1,5 @@
+import { Menu } from "./interfaces";
 import Icon from "./enum";
-
-interface Menu {
-  id: string;
-  title: string;
-  icon: Icon;
-  link: string;
-}
 
 const menus: Menu[] = [
   { id: "1", title: "Home", icon: Icon.HomeIcon, link: "/" },

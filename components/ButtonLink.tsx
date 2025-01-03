@@ -1,12 +1,17 @@
+import React from "react";
 import Link from "next/link";
 import HeroIcons from "./Icons";
 
-const ButtonLink = ({ textTitle, icon, link }) => {
+interface ButtonLinkProps {
+  textTitle: string;
+  icon: string;
+  link: string;
+}
+
+const ButtonLink: React.FC<ButtonLinkProps> = ({ textTitle, icon, link }) => {
   return (
-    <Link href={link} legacyBehavior>
-      <a className='btn d-flex justify-center align-center'>
-        {textTitle} <HeroIcons icon={icon} />
-      </a>
+    <Link href={link} className='btn d-flex justify-center align-center'>
+      {textTitle} <HeroIcons icon={icon} />
     </Link>
   );
 };

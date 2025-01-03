@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CustomHead from "../components/CustomHead";
 import MobileMenu from "../components/MobileMenu";
-import { menus } from "../data/menus";
+import menus from "../data/menus";
 
 export default function RootLayout({ children }) {
   return (

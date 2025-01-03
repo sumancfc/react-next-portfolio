@@ -1,7 +1,8 @@
+import React from "react";
 import HeroIcons from "./Icons";
-import { services } from "../data/services";
+import services from "../data/services";
 
-const Services = () => {
+const Services: React.FC = () => {
   return (
     <>
       <div className='row'>
@@ -20,7 +21,7 @@ const Services = () => {
                   <HeroIcons icon={service.icon} />
                 </div>
                 <h4 className='title'>{service.title}</h4>
-                <p>{service.desc}</p>
+                <p>{service.description}</p>
               </div>
             </div>
           );

@@ -1,10 +1,5 @@
 import Icon from "./enum";
-
-interface Contact {
-  id: string;
-  information: string;
-  icon: Icon;
-}
+import { Contact } from "./interfaces";
 
 const contacts: Contact[] = [
   {

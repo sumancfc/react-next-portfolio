@@ -1,4 +1,6 @@
-const TopHeader = () => {
+import React from "react";
+
+const TopHeader: React.FC = () => {
   return (
     <div className='home-top d-flex justify-between'>
       <div className='information'>

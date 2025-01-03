@@ -1,6 +1,11 @@
 import Head from "next/head";
 
-const CustomHead = ({ title, description }) => {
+interface CustomHeadProps {
+  title: string;
+  description: string;
+}
+
+const CustomHead: React.FC<CustomHeadProps> = ({ title, description }) => {
   return (
     <>
       <Head>
