@@ -1,0 +1,28 @@
+name: Personal Portfolio CI/CD
+
+run-name: ${{github.actor}}
+
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    runs-on: ${{matrix.os}}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.15.1"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Portfolio
+        run: npm run build
