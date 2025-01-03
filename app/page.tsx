@@ -6,10 +6,7 @@ import TopHeader from "../components/TopHeader";
 const HomePage = () => {
   return (
     <>
-      <CustomHead
-        title='Suman Shrestha | Frontend Developer'
-        description=''
-      />
+      <CustomHead title='Suman Shrestha | Software Engineer' description='' />
       <section className='home-section section d-flex' id='home'>
         <TopHeader />
 

@@ -1,17 +1,27 @@
-export const contacts = [
+import Icon from "./enum";
+
+interface Contact {
+  id: string;
+  information: string;
+  icon: Icon;
+}
+
+const contacts: Contact[] = [
   {
     id: "1",
-    info: "Hof, Bavaria, Germany",
-    icon: "LocationMarkerIcon",
+    information: "Geschwister Scholl Straße-15, 73732 Esslingen",
+    icon: Icon.LocationMarkerIcon,
   },
   {
     id: "2",
-    info: "+4917685985727",
-    icon: "DeviceMobileIcon",
+    information: "+4917685985727",
+    icon: Icon.DeviceMobileIcon,
   },
   {
     id: "3",
-    info: "sumanstha999@gmail.com",
-    icon: "MailIcon",
+    information: "sumanstha999@gmail.com",
+    icon: Icon.MailIcon,
   },
 ];
+
+export default contacts;

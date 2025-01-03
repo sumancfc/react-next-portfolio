@@ -1,12 +1,12 @@
 import CustomHead from "../../components/CustomHead";
 import HeroIcons from "../../components/Icons";
-import { contacts } from "../../data/contacts";
+import contacts from "../../data/contacts";
 
 const ContactPage = () => {
   return (
     <>
       <CustomHead
-        title='Contact - Suman Shrestha | Frontend Developer From Nepal'
+        title='Contact - Suman Shrestha | Software Engineer'
         description=''
       />
       <section className='contact-section section' id='contact'>
@@ -28,7 +28,9 @@ const ContactPage = () => {
                     {contacts.map((contact) => (
                       <li key={contact.id} className='d-flex align-center'>
                         <HeroIcons icon={contact.icon} />
-                        <span className='media-info'>{contact.info}</span>
+                        <span className='media-info'>
+                          {contact.information}
+                        </span>
                       </li>
                     ))}
                   </ul>

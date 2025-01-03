@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import { menus } from "../data/menu";
+import { menus } from "../data/menus";
 import MobileMenu from "./MobileMenu";
 
 const Layout = ({ children }) => {

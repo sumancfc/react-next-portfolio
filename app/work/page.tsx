@@ -4,7 +4,7 @@ const WorkPage = () => {
   return (
     <>
       <CustomHead
-        title='Work - Suman Shrestha | Frontend Developer From Nepal'
+        title='Work - Suman Shrestha | Software Engineer'
         description=''
       />
       This is Work Page
