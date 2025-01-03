@@ -1,17 +1,17 @@
-import CustomHead from "../../components/CustomHead";
-import BackgroundImage from "../../components/BackgroundImage";
+import React from "react";
+import { Metadata } from "next";
 
-const ExperiencePage = () => {
+export const metadata: Metadata = {
+  title: "Experience - Suman Shrestha | Software Engineer",
+};
+
+const ExperiencePage: React.FC = () => {
   return (
     <>
-      <CustomHead
-        title='Experience - Suman Shrestha | Software Engineer'
-        description=''
-      />
       <section className='experience-section section' id='experience'>
         <div className='container'>
           <div className='section-title'>
-            <h2 className='title'>Services</h2>
+            <h2 className='title'>Experience</h2>
           </div>
           <div className='experience-box'>
             <div className='experience-row'>

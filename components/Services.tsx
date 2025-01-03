@@ -13,7 +13,7 @@ const Services: React.FC = () => {
 
       <div className='row'>
         {services.map((service) => {
-          console.log(service);
+          // console.log(service);
           return (
             <div key={service.id} className='service-items'>
               <div className='service-item'>

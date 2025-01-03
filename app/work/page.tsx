@@ -1,15 +1,12 @@
-import CustomHead from "../../components/CustomHead";
+import React from "react";
+import { Metadata } from "next";
 
-const WorkPage = () => {
-  return (
-    <>
-      <CustomHead
-        title='Work - Suman Shrestha | Software Engineer'
-        description=''
-      />
-      This is Work Page
-    </>
-  );
+export const metadata: Metadata = {
+  title: "Work - Suman Shrestha | Software Engineer",
+};
+
+const WorkPage: React.FC = () => {
+  return <>This is Work Page</>;
 };
 
 export default WorkPage;

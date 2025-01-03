@@ -1,12 +1,16 @@
+import React from "react";
+import { Metadata } from "next";
 import Image from "next/image";
-import CustomHead from "../../components/CustomHead";
 import BackgroundImage from "../../components/BackgroundImage";
 import Services from "../../components/Services";
 
-const AboutPage = () => {
+export const metadata: Metadata = {
+  title: "About - Suman Shrestha | Software Engineer",
+};
+
+const AboutPage: React.FC = () => {
   return (
     <>
-      <CustomHead title='About Me' description='' />
       <section className='about-section section' id='about'>
         <div className='container'>
           <div className='row d-flex justify-between align-center'>
@@ -19,8 +23,6 @@ const AboutPage = () => {
                     width={358}
                     height={358}
                     quality={100}
-                    layout='responsive'
-                    objectFit='cover'
                   />
                 </div>
               </div>
