@@ -1,3 +1,4 @@
+import React from "react";
 import "../styles/style.scss";
 import { Metadata } from "next";
 import Header from "../components/Header";
