@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ menus }) => {
               }
             >
               <HeroIcons icon={menu.icon} />
-              {menu.title}
+
             </Link>
           </li>
         ))}

@@ -3,13 +3,18 @@ import type { Config } from "@jest/types";
 const config: Config.InitialOptions = {
   preset: "ts-jest",
   testEnvironment: "jest-environment-jsdom",
-  setupFilesAfterEnv: ["./jest.setup.ts"],
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.(ts|tsx)$": [
+      "ts-jest",
+      {
+        tsconfig: "tsconfig.jest.json",
+      },
+    ],
   },
-  moduleNameMapper: {
-    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
-  },
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  transformIgnorePatterns: ["/node_modules/"],
+  moduleNameMapper: { "\\.(css|less|scss|sass)$": "identity-obj-proxy" },
+  setupFilesAfterEnv: ["./jest.setup.ts"],
 };
 
 export default config;

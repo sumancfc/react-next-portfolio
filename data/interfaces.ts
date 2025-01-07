@@ -26,3 +26,18 @@ export interface Social {
   link: string;
   src: string;
 }
+
+interface Responsibility {
+  task: string;
+}
+
+export interface Experience {
+  id: string;
+  company: string;
+  role: string;
+  type: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  responsibilities: Responsibility[];
+}

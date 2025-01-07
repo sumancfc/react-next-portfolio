@@ -23,12 +23,12 @@ export default function RootLayout({
   return (
     <html lang='en-US'>
       <body>
-        <div className='page-wrapper'>
+        <div className='page-wrapper' data-testid='page-wrapper'>
           <MobileMenu />
 
           <Header menus={menus} />
 
-          {children}
+          <main>{children}</main>
 
           <Footer />
         </div>

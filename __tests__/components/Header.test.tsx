@@ -39,7 +39,7 @@ describe("Header component", () => {
     render(<Header menus={mockMenus} />);
 
     mockMenus.forEach((menu) => {
-      const linkElement = screen.getByRole("link", { name: menu.title });
+      const linkElement = screen.getByRole("link", { name: menu.link });
       expect(linkElement).toBeInTheDocument();
       expect(linkElement).toHaveAttribute("href", menu.link);
       const iconElement = screen.getByTestId(`mock-icon-${menu.icon}`);
@@ -51,10 +51,10 @@ describe("Header component", () => {
     usePathnameMock.mockReturnValue("/");
     render(<Header menus={mockMenus} />);
 
-    const activeLink = screen.getByRole("link", { name: "Home" });
+    const activeLink = screen.getByRole("link", { name: "home" });
     expect(activeLink).toHaveClass("active nav-link");
 
-    const inactiveLink = screen.getByRole("link", { name: "About" });
+    const inactiveLink = screen.getByRole("link", { name: "about" });
     expect(inactiveLink).toHaveClass("nav-link");
     expect(inactiveLink).not.toHaveClass("active");
   });

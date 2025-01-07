@@ -95,19 +95,19 @@
 
       .nav-link {
         margin: 0;
-        padding: 0.5rem 0;
+        padding: 10px 0;
         color: $colorWhite;
         text-decoration: none;
         transition: all 0.35s ease;
         text-align: center;
-        font-size: 16px;
+        font-size: 27px;
 
         &.active {
           color: $colorRed;
         }
 
         .icons {
-          width: 22px;
+          width: 27px;
         }
       }
     }
