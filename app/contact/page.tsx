@@ -1,10 +1,10 @@
 import React from "react";
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import HeroIcons from "../../components/Icons";
 import contacts from "../../data/contacts";
 
 export const metadata: Metadata = {
-  title: "Contact - Suman Shrestha | Software Engineer",
+  title: "Contact",
 };
 
 const ContactPage: React.FC = () => {

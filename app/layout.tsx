@@ -1,13 +1,17 @@
 import React from "react";
-import "../styles/style.scss";
 import { Metadata } from "next";
+import "../styles/style.scss";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MobileMenu from "../components/MobileMenu";
 import menus from "../data/menus";
 
 export const metadata: Metadata = {
-  title: "Suman Shrestha | Software Engineer",
+  title: {
+    default: "Suman Shrestha | Software Engineer",
+    template: "%s - Suman Shrestha | Software Engineer",
+    absolute: "",
+  },
   description: "Personal Portfolio of Suman Shrestha",
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Experience - Suman Shrestha | Software Engineer",
+  title: "Experience",
 };
 
 const ExperiencePage: React.FC = () => {

@@ -5,7 +5,7 @@ import BackgroundImage from "../../components/BackgroundImage";
 import Services from "../../components/Services";
 
 export const metadata: Metadata = {
-  title: "About - Suman Shrestha | Software Engineer",
+  title: "About",
 };
 
 const AboutPage: React.FC = () => {
