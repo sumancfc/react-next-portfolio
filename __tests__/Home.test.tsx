@@ -6,7 +6,7 @@ import HomePage from "../app/page";
 jest.mock("../components/BackgroundImage", () => () => (
   <div data-testid='background-image' />
 ));
-jest.mock("../components/Hero", () => () => <div data-testid='hero' />);
+jest.mock("../components/HeroSection", () => () => <div data-testid='hero' />);
 jest.mock("../components/TopHeader", () => () => (
   <div data-testid='top-header' />
 ));

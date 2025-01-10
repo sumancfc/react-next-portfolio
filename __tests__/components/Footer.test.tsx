@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Footer from "../../components/Footer";
+import Index from "../../components/Footer";
 
 // Mock the SocialIcons component
 jest.mock("../../components/SocialIcons", () => ({
@@ -9,15 +9,15 @@ jest.mock("../../components/SocialIcons", () => ({
   default: () => <div data-testid='mock-social-icons' />,
 }));
 
-describe("Footer component", () => {
+describe("Index component", () => {
   test("renders SocialIcons component", () => {
-    render(<Footer />);
+    render(<Index />);
     const socialIcons = screen.getByTestId("mock-social-icons");
     expect(socialIcons).toBeInTheDocument();
   });
 
   test("renders copyright text correctly", () => {
-    render(<Footer />);
+    render(<Index />);
     const currentYear = new Date().getFullYear().toString();
     const copyrightElement = screen.getByTestId("copyright");
     expect(copyrightElement.textContent).toContain(currentYear);
@@ -26,7 +26,7 @@ describe("Footer component", () => {
   });
 
   test("renders Link component correctly", () => {
-    render(<Footer />);
+    render(<Index />);
     const linkElement = screen.getByTestId("copyright-link");
     expect(linkElement).toBeInTheDocument();
     expect(linkElement).toHaveAttribute("href", "/");

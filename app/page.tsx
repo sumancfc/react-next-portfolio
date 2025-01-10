@@ -1,22 +1,19 @@
 import React from "react";
 import BackgroundImage from "../components/BackgroundImage";
-import Hero from "../components/Hero";
 import TopHeader from "../components/TopHeader";
+import HeroSection from "../components/HeroSection";
+import {Container} from "@mantine/core";
 
 const HomePage: React.FC = () => {
   return (
-    <>
-      <section className='home-section section d-flex' id='home'>
-        <TopHeader />
+    <Container>
 
-        <Hero />
+{/*        <TopHeader />*/}
 
-        <BackgroundImage
-          className='home-image'
-          imageSrc='/img/home-banner.png'
-        />
-      </section>
-    </>
+        <HeroSection/>
+
+
+    </Container>
   );
 };
 

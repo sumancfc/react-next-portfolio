@@ -5,14 +5,14 @@ import "@testing-library/jest-dom";
 import RootLayout from "../app/layout";
 
 jest.mock("../components/Header", () => () => <div data-testid='header' />);
-jest.mock("../components/Footer", () => () => <div data-testid='footer' />);
+jest.mock("../components/Index", () => () => <div data-testid='footer' />);
 jest.mock("../components/MobileMenu", () => () => (
   <div data-testid='mobile-menu' />
 ));
 jest.mock("../data/menus", () => []);
 
 describe("RootLayout component", () => {
-  test("renders the RootLayout contents with Header, Footer, MobileMenu components and children", () => {
+  test("renders the RootLayout contents with Header, Index, MobileMenu components and children", () => {
     const childrenText = "Sample Children";
     const { RootLayout: LayoutContents } = RootLayout({
       children: childrenText,

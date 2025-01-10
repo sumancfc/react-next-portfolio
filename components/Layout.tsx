@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import Header from "./Header";
-import Footer from "./Footer";
+import Index from "./Footer";
 import menus from "../data/menus";
 import MobileMenu from "./MobileMenu";
 
@@ -13,11 +13,11 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     <div className='page-wrapper'>
       <MobileMenu />
 
-      <Header menus={menus} />
+      
 
       {children}
 
-      <Footer />
+      <Index />
     </div>
   );
 };
