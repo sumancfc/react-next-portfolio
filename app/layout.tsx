@@ -1,15 +1,12 @@
+import "@mantine/core/styles.css";
 import React from "react";
 import { Metadata } from "next";
-import '@mantine/core/styles.css';
-import { ColorSchemeScript, MantineProvider, mantineHtmlProps, Container } from '@mantine/core';
-
-import "../styles/style.scss";
-import Header from "../components/Header";
-import Index from "../components/Footer";
-import MobileMenu from "../components/MobileMenu";
-import menus from "../data/menus";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import {
+  ColorSchemeScript,
+  MantineProvider,
+  mantineHtmlProps,
+} from "@mantine/core";
+import { AltLayout } from "../components/Layout";
 
 export const metadata: Metadata = {
   title: {
@@ -26,19 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-      <html lang='en-US' {...mantineHtmlProps}>
+    <html lang='en-US' {...mantineHtmlProps}>
       <head>
-        <ColorSchemeScript/>
+        <ColorSchemeScript />
       </head>
       <body>
-      <MantineProvider>
-
-              <Navbar/>
-              {children}
-              <Footer/>
-
-      </MantineProvider>
+        <MantineProvider defaultColorScheme='dark'>
+          <AltLayout children={children} />
+        </MantineProvider>
       </body>
-      </html>
-);
+    </html>
+  );
 }

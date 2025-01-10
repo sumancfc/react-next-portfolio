@@ -1,25 +1,21 @@
-import React, { FC, ReactNode } from "react";
-import Header from "./Header";
-import Index from "./Footer";
-import menus from "../data/menus";
-import MobileMenu from "./MobileMenu";
+"use client";
 
-interface LayoutProps {
-  children: ReactNode;
-}
+import React from "react";
+import { AppShell, Burger, Group, Skeleton, Text } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-const Layout: FC<LayoutProps> = ({ children }) => {
+export function AltLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className='page-wrapper'>
-      <MobileMenu />
-
-      
-
-      {children}
-
-      <Index />
-    </div>
+    <AppShell layout='alt'>
+      <AppShell.Navbar>
+        <Navbar />
+      </AppShell.Navbar>
+      <AppShell.Main>{children}</AppShell.Main>
+      <AppShell.Footer>
+        <Footer />
+      </AppShell.Footer>
+    </AppShell>
   );
-};
-
-export default Layout;
+}

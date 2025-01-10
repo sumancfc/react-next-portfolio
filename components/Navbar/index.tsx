@@ -1,12 +1,12 @@
 "use client"
 
-import { useState } from "react";
+import { useState, RefAttributes, ForwardRefExoticComponent } from "react";
 import {
   IconCalendarStats,
   IconDeviceDesktopAnalytics,
   IconFingerprint,
   IconGauge,
-  IconHome2,
+  IconHome2, IconProps,
   IconSettings,
   IconUser,
 } from "@tabler/icons-react";
@@ -35,7 +35,7 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
   );
 }
 
-const mockdata = [
+const mockdata:  { icon: ForwardRefExoticComponent<IconProps & RefAttributes<Icon>>;     label: string }   = [
   { icon: IconHome2, label: "Home" },
   { icon: IconGauge, label: "Dashboard" },
   { icon: IconDeviceDesktopAnalytics, label: "Analytics" },
