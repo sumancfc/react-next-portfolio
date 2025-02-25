@@ -4,7 +4,7 @@ import SocialIcons from "./SocialIcons";
 
 const Footer: React.FC = () => {
   return (
-    <footer className='footer section' data-testid='footer'>
+    <footer className='section footer' data-testid='footer'>
       <div className='container'>
         <div className='row d-flex justify-between align-center'>
           <div>
