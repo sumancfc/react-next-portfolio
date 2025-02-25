@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import BackgroundImage from "../components/BackgroundImage";
 import TopHeader from "../components/TopHeader";
@@ -8,7 +10,7 @@ const HomePage: React.FC = () => {
   return (
     <Container>
 
-{/*        <TopHeader />*/}
+    <TopHeader />
 
         <HeroSection/>
 
