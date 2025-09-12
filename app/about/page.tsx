@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import BackgroundImage from "../../components/BackgroundImage";
 import Services from "../../components/Services";
+import Layout from "../../components/Layout";
 
 export const metadata: Metadata = {
   title: "About",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 const AboutPage: React.FC = () => {
   return (
-    <>
+    <Layout>
       <section className='about-section section' id='about'>
         <div className='container'>
           <div className='row d-flex justify-between align-center'>
@@ -82,7 +83,7 @@ const AboutPage: React.FC = () => {
           {/*  <Services /> */}
         </div>
       </section>
-    </>
+    </Layout>
   );
 };
 

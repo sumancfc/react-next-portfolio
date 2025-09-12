@@ -1,4 +1,3 @@
-/*======= global =======*/
 *,
 *::before,
 *::after {
@@ -48,7 +47,6 @@ h6 {
 
 .section {
   width: calc(100% - 80px);
-  display: block;
   top: 0;
   left: 80px;
   right: 0;
@@ -67,6 +65,16 @@ h6 {
   @media #{$tiny} {
     padding: 0 12px;
   }
+}
+
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.fixed {
+  position: fixed;
 }
 
 .hide {
@@ -134,6 +142,10 @@ h6 {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .align-center {
@@ -217,3 +229,79 @@ h6 {
     }
   }
 }
+
+.skip-link {
+  top: 0;
+  left: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 1000;
+  transition: top 0.3s;
+  outline: 2px solid $colorRed;
+  outline-offset: -2px;
+}
+
+.skip-link:not(:focus-visible) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+
+  .information {
+    a {
+      margin: 0;
+      color: #fff;
+      font-weight: 400;
+      font-size: 14px;
+      transition: 0.3s;
+
+      &:last-child {
+        margin-left: 40px;
+      }
+
+      &:hover {
+        color: $colorRed;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $outlineRed;
+      }
+
+      svg {
+        color: #fff;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+.language {
+  li {
+    &.active {
+      background: $colorRed;
+    }
+
+    &:last-child {
+      margin-left: 10px;
+    }
+
+    a {
+      color: #fff;
+      font-size: 14px;
+      padding: 5px 8px;
+    }
+  }
+}
+
+.py-20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+

@@ -2,6 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import HeroIcons from "../../components/Icons";
 import contacts from "../../data/contacts";
+import Layout from "../../components/Layout";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 
 const ContactPage: React.FC = () => {
   return (
-    <>
+    <Layout>
       <section className='contact-section section' id='contact'>
         <div className='container'>
           <div className='row'>
@@ -103,7 +104,7 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </>
+    </Layout>
   );
 };
 

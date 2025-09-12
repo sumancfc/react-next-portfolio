@@ -2,6 +2,9 @@
   position: relative;
   padding: 12px 50px;
   background: $colorBackground;
+  @media #{$tiny} {
+    padding: 12px;
+  }
   .row {
     .copyright {
       font-size: 14px;

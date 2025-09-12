@@ -3,9 +3,8 @@ import ButtonLink from "./ButtonLink";
 
 const Hero = () => {
   return (
-    <div className='container'>
-      <div className='row full-screen align-center'>
-        <div className='introduction'>
+
+        <div className='col-6 introduction'>
           <div className='type-text'>
             <h6>Hello, My name is</h6>
             <h1>Suman Shrestha</h1>
@@ -25,8 +24,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 

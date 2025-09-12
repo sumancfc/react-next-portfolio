@@ -1,4 +1,3 @@
-/*======= header =======*/
 .header-left {
   background: $colorBackground;
   width: 80px;
@@ -89,52 +88,6 @@
         .icons {
           width: 27px;
         }
-      }
-
-      .tooltip-container::before {
-        content: '';
-        position: absolute;
-        bottom: 110%;
-        left: 50%;
-        transform: translateX(-50%);
-        border-width: 5px;
-        border-style: solid;
-        border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
-        z-index: 1001;
-
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-      }
-      .tooltip-container::after {
-        content: attr(data-tooltip);
-        position: absolute;
-        bottom: 120%;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 8px 12px;
-        border-radius: 6px;
-        font-size: 14px;
-        white-space: nowrap;
-        z-index: 1000;
-
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-      }
-
-      .tooltip-container:hover::after,
-      .tooltip-container:focus::after {
-        visibility: visible;
-        opacity: 1;
-      }
-
-      .tooltip-container:hover::before,
-      .tooltip-container:focus::before {
-        visibility: visible;
-        opacity: 1;
       }
     }
   }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import experiences from "../../data/experience";
+import Layout from "../../components/Layout";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 const ExperiencePage: React.FC = () => {
   return (
-    <>
+    <Layout>
       <section className='experience-section section' id='experience'>
         <div className='container'>
           <div className='section-title'>
@@ -49,7 +50,7 @@ const ExperiencePage: React.FC = () => {
           ))}
         </div>
       </section>
-    </>
+    </Layout>
   );
 };
 

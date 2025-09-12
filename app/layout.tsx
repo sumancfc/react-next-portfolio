@@ -1,10 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import "../styles/style.scss";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import MobileMenu from "../components/MobileMenu";
-import menus from "../data/menus";
+import "../public/styles/style.scss";
 
 export const metadata: Metadata = {
   title: {
@@ -23,15 +19,7 @@ export default function RootLayout({
   return (
     <html lang='en-US'>
       <body>
-        <div className='page-wrapper' data-testid='page-wrapper'>
-          <MobileMenu />
-
-          <Header menus={menus} />
-
-          <main>{children}</main>
-
-          <Footer />
-        </div>
+      {children}
       </body>
     </html>
   );
