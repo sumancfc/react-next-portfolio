@@ -15,21 +15,26 @@
     z-index: 222;
   }
 
-  .logo {
-    a {
-      background: $colorRed;
-      color: $colorWhite;
-      width: 80px;
-      height: 80px;
-      line-height: 80px;
-      display: inline-block;
-      text-align: center;
-      font-size: 42px;
-      font-weight: 700;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-  }
+  // .logo {
+  //   a {
+  //     background: $colorRed;
+  //     color: $colorWhite;
+  //     width: 80px;
+  //     height: 80px;
+  //     line-height: 80px;
+  //     display: inline-block;
+  //     text-align: center;
+  //     font-size: 42px;
+  //     font-weight: 700;
+  //     text-decoration: none;
+  //     text-transform: uppercase;
+
+  //     &:focus-visible {
+  //       outline: 2px solid $colorWhite;
+  //       outline-offset: -2px;
+  //     }
+  //   }
+  // }
 
   .nav-toggle {
     position: fixed;
@@ -95,15 +100,21 @@
 
       .nav-link {
         margin: 0;
-        padding: 10px 0;
+        padding: 10px;
         color: $colorWhite;
         text-decoration: none;
         transition: all 0.35s ease;
         text-align: center;
         font-size: 27px;
+        display: block;
 
         &.active {
           color: $colorRed;
+        }
+
+        &:focus-visible {
+          outline: 2px solid $outlineRed;
+          outline-offset: -2px;
         }
 
         .icons {

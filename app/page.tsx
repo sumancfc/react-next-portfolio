@@ -1,5 +1,5 @@
 import React from "react";
-import BackgroundImage from "../components/BackgroundImage";
+// import BackgroundImage from "../components/BackgroundImage";
 import Hero from "../components/Hero";
 import TopHeader from "../components/TopHeader";
 
@@ -10,11 +10,10 @@ const HomePage: React.FC = () => {
         <TopHeader />
 
         <Hero />
-
-        <BackgroundImage
+        {/* <BackgroundImage
           className='home-image'
           imageSrc='/img/home-banner.png'
-        />
+        />  */}
       </section>
     </>
   );

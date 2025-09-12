@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
                 target='_blank'
                 data-testid='copyright-link'
               >
-                Suman Shrestha.
+                Suman Shrestha.{" "}
               </Link>
               All right reserved.
             </p>
