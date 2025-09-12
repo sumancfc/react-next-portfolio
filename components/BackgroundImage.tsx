@@ -1,5 +1,3 @@
-import React from "react";
-
 interface BackgroundImageProps {
   className?: string;
   imageSrc: string;

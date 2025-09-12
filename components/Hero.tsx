@@ -22,11 +22,6 @@ const Hero = () => {
                 icon={Icon.DownloadIcon}
                 link='#'
               />
-              <ButtonLink
-                textTitle='My Work'
-                icon={Icon.EyeIcon}
-                link='/work'
-              />
             </div>
           </div>
         </div>

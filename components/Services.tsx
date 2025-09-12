@@ -1,4 +1,3 @@
-import React from "react";
 import HeroIcons from "./Icons";
 import services from "../data/services";
 
@@ -13,7 +12,6 @@ const Services: React.FC = () => {
 
       <div className='row'>
         {services.map((service) => {
-          // console.log(service);
           return (
             <div key={service.id} className='service-items'>
               <div className='service-item'>

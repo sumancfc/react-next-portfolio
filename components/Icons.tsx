@@ -1,4 +1,3 @@
-import React from "react";
 import * as HIcons from "@heroicons/react/outline";
 
 interface HeroIconsProps {
@@ -14,7 +13,7 @@ const HeroIcons: React.FC<HeroIconsProps> = (props) => {
     return null;
   }
 
-  return <TheIcon className='icons' aria-hidden='true' />;
+  return <TheIcon className='icons' aria-hidden='true' focusable="false" />;
 };
 
 export default HeroIcons;

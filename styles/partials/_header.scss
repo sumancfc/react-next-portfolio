@@ -7,35 +7,12 @@
   top: 0;
   height: 100vh;
   border-right: 1px solid $colorLightGray;
-
   @media #{$sm} {
     transition: all 0.35s ease;
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
     z-index: 222;
   }
-
-  // .logo {
-  //   a {
-  //     background: $colorRed;
-  //     color: $colorWhite;
-  //     width: 80px;
-  //     height: 80px;
-  //     line-height: 80px;
-  //     display: inline-block;
-  //     text-align: center;
-  //     font-size: 42px;
-  //     font-weight: 700;
-  //     text-decoration: none;
-  //     text-transform: uppercase;
-
-  //     &:focus-visible {
-  //       outline: 2px solid $colorWhite;
-  //       outline-offset: -2px;
-  //     }
-  //   }
-  // }
-
   .nav-toggle {
     position: fixed;
     width: 40px;
@@ -50,15 +27,13 @@
     align-items: center;
     justify-content: center;
     transition: all 0.4s ease;
-
     span {
       position: relative;
       width: 16px;
       height: 2px;
       display: inline-block;
-
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         width: 16px;
         height: 2px;
@@ -66,9 +41,8 @@
         left: 0;
         z-index: 100;
       }
-
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         width: 16px;
         height: 2px;
@@ -78,7 +52,6 @@
       }
     }
   }
-
   .nav {
     padding: 45px 0;
     display: flex;
@@ -86,40 +59,82 @@
     flex-wrap: wrap;
     margin-bottom: 0;
     list-style: none;
-
     .nav-item {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       border-bottom: 1px solid $colorLightGray;
-
       &:last-child {
         border-bottom: none;
       }
-
       .nav-link {
-        margin: 0;
-        padding: 10px;
         color: $colorWhite;
         text-decoration: none;
         transition: all 0.35s ease;
         text-align: center;
         font-size: 27px;
-        display: block;
-
+        display: flex;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
         &.active {
           color: $colorRed;
         }
-
         &:focus-visible {
           outline: 2px solid $outlineRed;
           outline-offset: -2px;
         }
-
         .icons {
           width: 27px;
         }
+      }
+
+      .tooltip-container::before {
+        content: '';
+        position: absolute;
+        bottom: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 5px;
+        border-style: solid;
+        border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+        z-index: 1001;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .tooltip-container::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        white-space: nowrap;
+        z-index: 1000;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .tooltip-container:hover::after,
+      .tooltip-container:focus::after {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .tooltip-container:hover::before,
+      .tooltip-container:focus::before {
+        visibility: visible;
+        opacity: 1;
       }
     }
   }

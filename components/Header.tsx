@@ -1,11 +1,10 @@
-"use client";
-
-import React from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import HeroIcons from "./Icons";
-import Logo from "./Logo";
-import { Menu } from "../data/interfaces";
+'use client';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { Tooltip } from 'react-tooltip';
+import HeroIcons from './Icons';
+import Logo from './Logo';
+import { Menu } from '../data/interfaces';
 
 interface HeaderProps {
   menus: Menu[];
@@ -23,12 +22,15 @@ const Header: React.FC<HeaderProps> = ({ menus }) => {
             <Link
               href={menu.link}
               className={
-                pathname === menu.link ? "active nav-link" : "nav-link"
+                pathname === menu.link ? 'active nav-link' : 'nav-link'
               }
+              data-tooltip-id='my-tooltip'
+              data-tooltip-content={menu.title}
+              data-tooltip-place='right'
             >
               <HeroIcons icon={menu.icon} />
-
             </Link>
+            <Tooltip id='my-tooltip' />
           </li>
         ))}
       </ul>

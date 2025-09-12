@@ -1,7 +1,7 @@
-/*======= home =======*/
 .home-section {
   position: relative;
   overflow: hidden;
+  flex-direction: column;
 
   .home-top {
     position: absolute;
@@ -33,6 +33,12 @@
 
         &:focus-visible {
           outline: 2px solid $outlineRed;
+        }
+
+        svg {
+          color: #fff;
+          width: 24px;
+          height: 24px;
         }
       }
     }
@@ -117,19 +123,8 @@
         @media #{$tiny} {
           flex-direction: column;
         }
-
-        .btn:last-child {
-          @media #{$tiny} {
-            margin: 0.75rem 0 0;
-          }
-        }
       }
     }
-
-    // @media #{$md} {
-    //   flex: 0 0 auto;
-    //   width: 60%;
-    // }
   }
 
   .home-image {

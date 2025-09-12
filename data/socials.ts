@@ -13,18 +13,6 @@ const socials: Social[] = [
     link: "https://www.linkedin.com/in/suman-shrestha-111410144/",
     src: "/img/linkedin.png",
   },
-  {
-    id: "3",
-    name: "Twitter",
-    link: "https://twitter.com/sumancfc",
-    src: "/img/twitter.png",
-  },
-  {
-    id: "4",
-    name: "Instagram",
-    link: "https://instagram.com/",
-    src: "/img/instagram.png",
-  },
 ];
 
 export default socials;
