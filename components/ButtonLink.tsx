@@ -10,7 +10,7 @@ interface ButtonLinkProps {
 
 const ButtonLink: React.FC<ButtonLinkProps> = ({ textTitle, icon, link }) => {
   return (
-    <Link href={link} className='btn d-flex justify-center align-center'>
+    <Link href={link} target="_blank" download className='btn d-flex justify-center align-center'>
       {textTitle} <HeroIcons icon={icon} />
     </Link>
   );

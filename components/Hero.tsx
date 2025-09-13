@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Icon from "../data/enum";
 import ButtonLink from "./ButtonLink";
 
-
+const CV_File_Path = '/Suman_Shrestha_Resume.pdf';
 const Hero: React.FC = () => {
   const {t} = useTranslation();
 
@@ -20,9 +20,9 @@ const Hero: React.FC = () => {
 
             <div className='home-btn'>
               <ButtonLink
-                textTitle='Download CV'
+                textTitle={t("download_cv")}
                 icon={Icon.DownloadIcon}
-                link='#'
+                link={CV_File_Path}
               />
             </div>
           </div>
