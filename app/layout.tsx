@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import I18nProvider from "../components/I18nProvider";
 import "../public/styles/style.scss";
 
 export const metadata: Metadata = {
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <html lang='en-US'>
       <body>
-      {children}
+      <I18nProvider>
+        {children}
+      </I18nProvider>
+
       </body>
     </html>
   );

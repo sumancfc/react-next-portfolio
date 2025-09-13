@@ -1,0 +1,21 @@
+{
+  "mobile_number": "Mobilnummer",
+  "email_address": "E-Mail-Adresse",
+  "welcome_message": "Willkommen auf meiner Webseite!",
+  "change_language": "Sprache ändern",
+  "en_lang": "EN",
+  "de_lang": "DE",
+  "name": "Suman Shrestha",
+  "greeting": "Hallo, ich bin",
+  "role": "Software-Entwickler",
+  "description": "Ein leidenschaftlicher Software-Ingenieur mit Expertise in der Entwicklung skalierbarer Webanwendungen und der Arbeit über den gesamten Stack hinweg. Erfahren in JavaScript, React, Node.js und Python. Engagiert für kontinuierliches Lernen und das Bleiben auf dem neuesten Stand der Branchentrends.",
+    "home": "Startseite",
+    "about_me": "Über mich",
+    "services": "Dienstleistungen",
+  "experience": "Erfahrung",
+    "skills": "Fähigkeiten",
+    "education": "Ausbildung",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt",
+    "hire_me": "Engagieren Sie mich"
+}

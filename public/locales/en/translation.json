@@ -1,0 +1,21 @@
+{
+  "mobile_number": "Mobile Number",
+  "email_address": "Email Address",
+  "welcome_message": "Welcome to my website!",
+  "change_language": "Change language",
+  "en_lang": "EN",
+  "de_lang": "DE",
+  "name": "Suman Shrestha",
+  "greeting": "Hello, I am",
+  "role": "Software Engineer",
+  "description": "A passionate software engineer with expertise in developing scalable web applications and working across the full stack. Skilled in JavaScript, React, Node.js, and Python. Committed to continuous learning and staying updated with the latest industry trends.",
+  "home": "Home",
+  "about_me": "About Me",
+  "services": "Services",
+  "experience": "Experience",
+  "skills": "Skills",
+  "education": "Education",
+  "portfolio": "Portfolio",
+  "contact": "Contact",
+  "hire_me": "Hire Me"
+}

@@ -2,28 +2,28 @@ import { Menu } from "./interfaces";
 import Icon from "./enum";
 
 const menus: Menu[] = [
-  { id: "1", title: "Home", icon: Icon.HomeIcon, link: "/" },
+  { id: "1", title: "home", icon: Icon.HomeIcon, link: "/" },
   {
     id: "2",
-    title: "About",
+    title: "about_me",
     icon: Icon.IdentificationIcon,
     link: "/about",
   },
   {
     id: "3",
-    title: "Experience",
+    title: "experience",
     icon: Icon.CollectionIcon,
     link: "/experience",
   },
   {
     id: "4",
-    title: "Work",
+    title: "portfolio",
     icon: Icon.DesktopComputerIcon,
     link: "/work",
   },
   {
     id: "5",
-    title: "Contact",
+    title: "contact",
     icon: Icon.PhoneOutgoingIcon,
     link: "/contact",
   },

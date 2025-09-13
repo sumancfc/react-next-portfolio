@@ -21,7 +21,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
             <MobileMenu />
             <Header menus={menus} />
             <main id="main-content" ref={mainContentRef} tabIndex={-1}>
-                    <TopHeader />
+                    <TopHeader topHeaderMenus={[]} />
                     {children}
             </main>
             <Footer />

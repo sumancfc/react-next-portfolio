@@ -41,3 +41,10 @@ export interface Experience {
   endDate: string;
   responsibilities: Responsibility[];
 }
+
+export interface TopHeaderMenu {
+  id: number;
+  title: string;
+  icon: Icon;
+  link: string;
+}
