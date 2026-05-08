@@ -12,18 +12,13 @@ export const metadata: Metadata = {
   description: "Personal Portfolio of Suman Shrestha",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en-US'>
+    <html lang='en' suppressHydrationWarning>
       <body>
-      <I18nProvider>
-        {children}
-      </I18nProvider>
-
+        <I18nProvider>
+          {children} {/* This renders HomePage, which then renders Layout */}
+        </I18nProvider>
       </body>
     </html>
   );

@@ -10,7 +10,7 @@
 body {
   background: $colorBlack;
   color: $colorWhite;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.7;
   font-size: 16px;
   font-weight: 300;
@@ -63,7 +63,7 @@ h6 {
   }
 
   @media #{$tiny} {
-    padding: 0 12px;
+    padding: 0 20px;
   }
 }
 
@@ -110,9 +110,8 @@ h6 {
   line-height: 42px;
   position: relative;
   display: inline-block;
-  background: none;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 24px;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -253,34 +252,33 @@ h6 {
   white-space: nowrap;
 }
 
+.information {
+  a {
+    margin: 0;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    transition: 0.3s;
 
-  .information {
-    a {
-      margin: 0;
+    &:last-child {
+      margin-left: 40px;
+    }
+
+    &:hover {
+      color: $colorRed;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $outlineRed;
+    }
+
+    svg {
       color: #fff;
-      font-weight: 400;
-      font-size: 14px;
-      transition: 0.3s;
-
-      &:last-child {
-        margin-left: 40px;
-      }
-
-      &:hover {
-        color: $colorRed;
-      }
-
-      &:focus-visible {
-        outline: 2px solid $outlineRed;
-      }
-
-      svg {
-        color: #fff;
-        width: 24px;
-        height: 24px;
-      }
+      width: 24px;
+      height: 24px;
     }
   }
+}
 
 .language {
   li {
@@ -292,10 +290,22 @@ h6 {
       margin-left: 10px;
     }
 
-    a {
+    button {
       color: #fff;
       font-size: 14px;
       padding: 5px 8px;
+      // Button resets
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      line-height: inherit;
+      display: inline-block;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 }
@@ -304,4 +314,3 @@ h6 {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
