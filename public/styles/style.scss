@@ -1,40 +1,15 @@
-/*-----------------------------------------------------------------------------------
-    Template Name: Suman Shrestha - Portfolio Website
-    Template URI: 
-    Author: Suman Shrestha
-    Author URI:  https://sumancfc.com
-    Version: 1.0
-
-    Note: This is Main Style Scss File. 
------------------------------------------------------------------------------------
-	CSS INDEX
-	===================
-    01. variables 
-    02. global
-    03. header
-    04. home
-    05. about
-    06. services
-    07. experience
-    08. education
-    09. work
-    10. blog
-    11. blog details
-    12. contact
-    13. footer
-    
------------------------------------------------------------------------------------*/
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+/* Fonts are self-hosted via next/font (app/layout.tsx) instead of an
+   external Google Fonts request — no extra round trip, no render block,
+   no layout shift. See $font-nunito / $font-jetbrains-mono below. */
 
 @import "partials/variables";
 @import "partials/global";
-@import "partials/header";
+@import "partials/dock";
 @import "partials/home";
 @import "partials/about";
-@import "partials/services";
 @import "partials/experience";
 @import "partials/work";
 @import "partials/blog";
 @import "partials/contact";
-@import "partials/footer";
+@import "partials/impressum";
+@import "partials/notfound";

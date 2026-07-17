@@ -1,44 +1,205 @@
-/*======= experience =======*/
 .experience-section {
   position: relative;
-  background: $colorBlack;
-  padding: 100px 0;
+  /* Clips the decorative floating tech icons (TechBackground) so they
+     can't peek past the right edge on narrow viewports and force a
+     horizontal scrollbar — same reasoning as .home-section. */
+  overflow: hidden;
+  padding-top: 60px;
+  /* Bottom stays above the fixed dock's own footprint (~90px) at every
+     size, regardless of how the top padding tapers down. */
+  padding-bottom: 100px;
 
-  .experience-box {
-    padding-top: 15px;
+  > .container {
+    position: relative;
+    z-index: 1;
+  }
 
-    .experience-row {
-      background: $colorBackground;
-      padding: 35px;
-      border-radius: 1rem;
+  @media #{$lg} {
+    padding-top: 50px;
+    padding-bottom: 90px;
+  }
 
-      .ex-left {
-        border-right: 1px solid hsla(0, 0%, 100%, 0.05);
+  @media #{$sm} {
+    padding-top: 40px;
+    padding-bottom: 90px;
+  }
 
-        h5 {
-          font-size: 20px;
-          font-weight: 500;
-          margin-bottom: 5px;
-        }
+  @media #{$tiny} {
+    padding-top: 30px;
+    padding-bottom: 90px;
+  }
+}
 
-        .ex-btn {
-          margin: 5px 0 0;
-          font-size: 13px;
-          font-weight: 500;
-          background-color: $colorRed;
-        }
+.ex-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  .ex-tab-list-wrapper {
+    display: flex;
+    align-items: stretch;
+    min-width: 200px;
+    flex-shrink: 0;
+
+    @media (min-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .ex-tab-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 1px solid hsl(0deg, 0%, 100%, 0.06);
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      flex-direction: column;
+      overflow-x: visible;
+      border-bottom: none;
+      border-left: 2px solid hsl(0deg, 0%, 100%, 0.06);
+    }
+  }
+
+  /* Horizontal-scroll arrows — mobile/tablet only, where the tab list
+     is a row; the desktop column layout doesn't need them. */
+  .ex-tab-scroll {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    background: transparent;
+    border: none;
+    color: hsl(0deg, 0%, 100%, 0.4);
+    cursor: pointer;
+    transition: color 0.15s ease;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      color: $colorRed;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $outlineRed;
+      outline-offset: -2px;
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .ex-tab-btn {
+    position: relative;
+    text-align: left;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: hsl(0deg, 0%, 100%, 0.4);
+    transition: color 0.15s ease, background 0.15s ease;
+
+    @media (min-width: 768px) {
+      white-space: normal;
+    }
+
+    &:hover {
+      color: hsl(0deg, 0%, 100%, 0.85);
+      background: hsl(0deg, 0%, 100%, 0.03);
+    }
+
+    &.active {
+      color: $colorRed;
+      background: hsl(0deg, 0%, 100%, 0.02);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $outlineRed;
+      outline-offset: -2px;
+    }
+
+    /* left active bar (desktop) */
+    .ex-tab-indicator {
+      position: absolute;
+      left: -2px;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: $colorRed;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      display: none;
+
+      @media (min-width: 768px) {
+        display: block;
       }
+    }
 
-      .ml-5 {
-        margin-left: 5%;
-        .ex-right {
-          h5 {
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 5px;
-          }
-        }
-      }
+    &.active .ex-tab-indicator {
+      opacity: 1;
+    }
+  }
+
+  .ex-tab-panel {
+    flex: 1;
+    padding: 30px 0 0;
+
+    @media (min-width: 768px) {
+      padding: 0 0 0 40px;
+    }
+  }
+
+  .ex-tab-heading {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #fff;
+
+    .ex-tab-company {
+      color: $colorRed;
+    }
+  }
+
+  .ex-tab-dots {
+    display: flex;
+    gap: 6px;
+    margin-top: 30px;
+  }
+
+  .ex-tab-dot {
+    height: 3px;
+    width: 12px;
+    border-radius: 999px;
+    border: none;
+    background: hsl(0deg, 0%, 100%, 0.15);
+    cursor: pointer;
+    transition: width 0.3s ease, background 0.3s ease;
+    padding: 0;
+
+    &.active {
+      width: 24px;
+      background: $colorRed;
+    }
+
+    &:hover:not(.active) {
+      background: hsl(0deg, 0%, 100%, 0.35);
     }
   }
 }

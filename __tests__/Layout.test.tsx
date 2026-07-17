@@ -1,38 +1,48 @@
-{
-  /*import React from "react";
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import RootLayout from "../app/layout";
+import Layout from "../components/Layout";
 
-jest.mock("../components/Header", () => () => <div data-testid='header' />);
-jest.mock("../components/Footer", () => () => <div data-testid='footer' />);
-jest.mock("../components/MobileMenu", () => () => (
-  <div data-testid='mobile-menu' />
-));
-jest.mock("../data/menus", () => []);
+function MockNavDock() {
+  return <div data-testid="nav-dock" />;
+}
+function MockFloatingContact() {
+  return <div data-testid="floating-contact" />;
+}
+function MockPageBackground() {
+  return <div data-testid="page-background" />;
+}
 
-describe("RootLayout component", () => {
-  test("renders the RootLayout contents with Header, Footer, MobileMenu components and children", () => {
-    const childrenText = "Sample Children";
-    const { RootLayout: LayoutContents } = RootLayout({
-      children: childrenText,
-    }) as any;
+jest.mock("../components/NavDock", () => MockNavDock);
+jest.mock("../components/FloatingContact", () => MockFloatingContact);
+jest.mock("../components/PageBackground", () => MockPageBackground);
 
-    render(<LayoutContents />);
+describe("Layout component", () => {
+  test("renders the background, skip link, nav dock, floating contact, and children", () => {
+    render(
+      <Layout>
+        <p>Page content</p>
+      </Layout>
+    );
 
-    const pageWrapper = screen.getByTestId("page-wrapper");
-    expect(pageWrapper).toBeInTheDocument();
+    expect(screen.getByTestId("page-background")).toBeInTheDocument();
+    expect(screen.getByTestId("nav-dock")).toBeInTheDocument();
+    expect(screen.getByTestId("floating-contact")).toBeInTheDocument();
+    expect(screen.getByText("Page content")).toBeInTheDocument();
 
-    const header = screen.getByTestId("header");
-    const footer = screen.getByTestId("footer");
-    const mobileMenu = screen.getByTestId("mobile-menu");
-    const children = screen.getByText(childrenText);
+    const skipLink = screen.getByRole("link", { name: "Zum Inhalt springen" });
+    expect(skipLink).toHaveAttribute("href", "#main-content");
+  });
 
-    expect(header).toBeInTheDocument();
-    expect(footer).toBeInTheDocument();
-    expect(mobileMenu).toBeInTheDocument();
-    expect(children).toBeInTheDocument();
+  test("gives <main> a focusable id matching the skip link's target", () => {
+    render(
+      <Layout>
+        <p>Page content</p>
+      </Layout>
+    );
+
+    const main = screen.getByText("Page content").closest("main");
+    expect(main).toHaveAttribute("id", "main-content");
+    expect(main).toHaveAttribute("tabIndex", "-1");
   });
 });
-*/
-}

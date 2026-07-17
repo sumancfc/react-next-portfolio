@@ -1,11 +1,34 @@
-//Colors
-$colorBackground: #0e0e17;
-$colorBlack: #000000;
-$colorWhite: #ffffff;
-$colorRed: #00bbe6;
-$outlineRed: #00bbe6;
-$colorGray: hsla(0, 0%, 100%, 0.8);
-$colorLightGray: hsla(0, 0%, 100%, 0.1);
+// Fonts — self-hosted via next/font, exposed as CSS variables on <html>
+$font-nunito: var(--font-nunito), sans-serif;
+$font-jetbrains-mono: var(--font-jetbrains-mono), monospace;
+
+// Colors
+$colorBackground: #0c1425;
+$colorBlack: #060c18;
+$colorWhite: #fff;
+$colorRed: #a3e635;
+$outlineRed: #a3e635;
+$colorGray: hsl(0deg, 0%, 100%, 0.8);
+$colorLightGray: hsl(0deg, 0%, 100%, 0.1);
+$colorGreen: #22c55e;
+
+// Cool accent palette — shared by the dock nav and contact cards so the
+// two stay in sync instead of each keeping its own copy of the hexes.
+$coolTeal: #14b8a6;
+$coolBlue: #3b82f6;
+$coolIndigo: #6366f1;
+$coolViolet: #8b5cf6;
+$coolCyan: #06b6d4;
+
+// Syntax-highlight palette — shared by the hero code block, the About
+// JSON card, and the Experience terminal.
+$codeKeyword: #c586c0;
+$codeVar: #9cdcfe;
+$codeString: #ce9178;
+$codeNumber: #b5cea8;
+$codeBoolean: #569cd6;
+$codeComment: #6a9955;
+$codeAttribute: #d19a66;
 
 // Responsive Variables
 $xxl: "(min-width: 1600px)";

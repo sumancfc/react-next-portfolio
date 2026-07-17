@@ -1,77 +1,152 @@
-/*======= contact =======*/
+/* Same trick as Home: the language-switcher bar above .contact-section
+   adds real height, so fit <main> to one viewport tall when the (short)
+   content allows it. min-height (not height), and leaving
+   .contact-section's min-height at its default `auto`, means the page
+   still scrolls normally if content doesn't fit at a given screen size. */
+main:has(> .contact-section) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  > .py-20 {
+    flex: 0 0 auto;
+  }
+}
+
 .contact-section {
   position: relative;
-  padding: 100px 0;
-  height: calc(100vh - 60px);
+  /* Clips the decorative floating tech icons (TechBackground) so they
+     can't peek past the right edge on narrow viewports and force a
+     horizontal scrollbar — same reasoning as .home-section. */
+  overflow: hidden;
+  padding-top: clamp(24px, 8dvh, 60px);
+  /* Floor is raised above the fixed dock's own footprint (~20px offset +
+     ~50px pill height) so content never sits underneath it, even when
+     8dvh alone would shrink smaller than that on a short viewport. */
+  padding-bottom: clamp(90px, 12dvh, 100px);
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
 
-  .contact-info {
-    h4 {
-      font-size: 34px;
-      color: $colorWhite;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
+  > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media #{$sm} {
+    padding-top: 24px;
+    padding-bottom: 90px;
+  }
+
+  .contact-intro {
+    max-width: 640px;
+    margin: 0 auto clamp(20px, 5dvh, 48px);
+    text-align: center;
+
+    .section-title {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .contact-message {
+    font-size: 16px;
+    line-height: 26px;
+    color: $colorGray;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Same cool palette as the dock nav — email/GitHub/LinkedIn each get
+     their own tone instead of one flat lime everywhere. */
+  $contact-colors: (
+    1: $coolTeal,
+    2: $coolIndigo,
+    3: $coolBlue,
+  );
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1 1 260px;
+    max-width: 320px;
+    padding: 20px 22px;
+    border-radius: 16px;
+    background: rgba($colorBackground, 0.6);
+    border: 1px solid hsl(0deg, 0%, 100%, 0.08);
+    backdrop-filter: blur(12px);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
     }
 
-    p {
-      font-size: 15px;
-      line-height: 25px;
-      color: $colorGray;
-      margin: 0;
-      font-weight: 400;
+    &:focus-visible {
+      outline: 2px solid $outlineRed;
+      outline-offset: 2px;
     }
 
-    .media {
-      margin-top: 1rem;
-      li {
-        padding-top: 20px;
-        .icons {
-          width: 32px;
-          margin-right: 10px;
-          color: $colorRed;
+    @each $i, $color in $contact-colors {
+      &:nth-child(#{$i}) {
+        &:hover {
+          border-color: rgba($color, 0.5);
+          box-shadow: 0 16px 32px -20px rgba($color, 0.6);
         }
 
-        .media-info {
-          font-size: 18px;
-          font-weight: 500;
-          color: $colorGray;
+        .contact-link-icon {
+          background: $color;
         }
       }
     }
   }
 
-  .contact-form {
-    h4 {
-      font-weight: 500;
-      font-size: 22px;
-      margin-bottom: 20px;
+  .contact-link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+
+    .icons,
+    svg {
+      width: 22px;
+      height: 22px;
+      color: $colorWhite;
+      fill: $colorWhite;
     }
+  }
 
-    .form-group {
-      margin-bottom: 1rem;
+  .contact-link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
 
-      .form-control {
-        width: 100%;
-        height: 42px;
-        border: 1px solid $colorGray;
-        padding: 10px 25px;
-        font-size: 14px;
-        color: $colorWhite;
-        transition: all 0.3s ease;
-        background: transparent;
-      }
+  .contact-link-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: $colorWhite;
+  }
 
-      textarea.form-control {
-        height: 100px;
-      }
-      .btn {
-        height: 42px;
-        margin: 0;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
+  .contact-link-value {
+    font-size: 14px;
+    color: $colorGray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

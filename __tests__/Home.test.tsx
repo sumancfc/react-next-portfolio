@@ -3,24 +3,26 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import HomePage from "../app/page";
 
-jest.mock("../components/BackgroundImage", () => () => (
-  <div data-testid='background-image' />
-));
-jest.mock("../components/Hero", () => () => <div data-testid='hero' />);
-jest.mock("../components/TopHeader", () => () => (
-  <div data-testid='top-header' />
-));
+function MockHero() {
+  return <div data-testid="hero" />;
+}
+function MockLayout({ children }: { children: React.ReactNode }) {
+  return <div data-testid="layout">{children}</div>;
+}
 
-describe("Home Page Component", () => {
-  test("renders the HomePage with TopHeader, Hero, and BackgroundImage components", () => {
+jest.mock("../components/Hero", () => MockHero);
+jest.mock("../components/Layout", () => MockLayout);
+
+describe("Home Page", () => {
+  test("renders the Hero inside the shared Layout", () => {
     render(<HomePage />);
 
-    const topHeader = screen.getByTestId("top-header");
-    const hero = screen.getByTestId("hero");
-    const backgroundImage = screen.getByTestId("background-image");
+    expect(screen.getByTestId("layout")).toBeInTheDocument();
+    expect(screen.getByTestId("hero")).toBeInTheDocument();
+  });
 
-    expect(topHeader).toBeInTheDocument();
-    expect(hero).toBeInTheDocument();
-    expect(backgroundImage).toBeInTheDocument();
+  test("renders the home section with its id, for the fixed-viewport CSS to target", () => {
+    const { container } = render(<HomePage />);
+    expect(container.querySelector("section.home-section#home")).toBeInTheDocument();
   });
 });

@@ -7,19 +7,6 @@ export interface Menu {
   link: string;
 }
 
-export interface Contact {
-  id: string;
-  information: string;
-  icon: Icon;
-}
-
-export interface Service {
-  id: string;
-  title: string;
-  description: string;
-  icon: Icon;
-}
-
 export interface Social {
   id: string;
   name: string;
@@ -28,16 +15,20 @@ export interface Social {
 }
 
 interface Responsibility {
-  task: string;
+  /** i18next key — resolved with t() at render time, not display text. */
+  taskKey: string;
 }
 
 export interface Experience {
   id: string;
+  /** Company names aren't translated, so this stays as display text. */
   company: string;
-  role: string;
-  type: string;
-  location: string;
+  /** i18next keys — resolved with t() at render time, not display text. */
+  roleKey: string;
+  typeKey: string;
+  locationKey: string;
   startDate: string;
+  /** "MM/YYYY", or "Present" for an ongoing role. */
   endDate: string;
   responsibilities: Responsibility[];
 }

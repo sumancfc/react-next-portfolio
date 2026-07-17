@@ -1,120 +1,155 @@
-/*======= about =======*/
 .about-section {
   position: relative;
-  background: $colorBlack;
-  padding: 100px 0;
+  /* Clips the decorative floating tech icons (TechBackground) so they
+     can't peek past the right edge on narrow viewports and force a
+     horizontal scrollbar — same reasoning as .home-section. */
+  overflow: hidden;
+  padding-top: 60px;
+  /* Bottom stays above the fixed dock's own footprint (~90px) at every
+     size, regardless of how the top padding tapers down. */
+  padding-bottom: 100px;
+
+  > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media #{$lg} {
+    padding-top: 50px;
+    padding-bottom: 90px;
+  }
+
+  @media #{$sm} {
+    padding-top: 40px;
+    padding-bottom: 90px;
+  }
+
+  @media #{$tiny} {
+    padding-top: 30px;
+    padding-bottom: 90px;
+  }
 
   .about-image {
-    .about-me {
+    /* LinkedIn-style "Open to work" ring — the photo sits in a fixed
+       circle, with the status text spinning slowly around it on an SVG
+       text path instead of a static badge. */
+    .about-photo-ring {
       position: relative;
-      .img {
-        border-radius: 50%;
-        max-width: 356px;
-        max-height: 358px;
-        margin: auto;
-        overflow: hidden;
-        border: 5px solid $colorWhite;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+    }
+
+    .about-photo-ring-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      animation: about-ring-spin 14s linear infinite;
+    }
+
+    .about-photo-ring-text {
+      font-family: $font-jetbrains-mono;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      fill: $colorGreen;
+    }
+
+    .about-photo-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid $colorBlack;
+      box-shadow: 0 0 0 2px rgba($colorGreen, 0.45), 0 20px 40px -20px rgb(0, 0, 0, 0.6);
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
+  }
+
+  @keyframes about-ring-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   .about-info {
     margin-left: auto;
 
-    .about-text {
-      p {
-        color: $colorGray;
-      }
+    @media #{$sm} {
+      margin-left: 0;
+      margin-top: 40px;
     }
 
-    .about-content {
-      flex: 0 0 100%;
-      max-width: 100%;
-      padding-top: 30px;
-
-      .col-6 {
-        flex: 0 0 auto;
-        width: 50%;
-
-        ul {
-          li {
-            padding: 4px 0;
-
-            label {
-              color: $colorWhite;
-              margin: 0;
-              font-weight: 500;
-              padding-right: 10px;
-            }
-
-            span {
-              color: $colorGray;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .separated {
-    padding-top: 80px;
-    padding-bottom: 80px;
-    background-repeat: repeat-x !important;
-    background-size: auto 6px !important;
-    background-position: 50% !important;
-    filter: invert(1);
-  }
-
-  .service-items {
-    padding: 15px 15px 15px 0;
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
-    margin-bottom: 30px;
-    display: flex;
-
-    &:last-child {
-      padding-right: 0;
+    /* Bio, styled as a JSDoc-style block comment */
+    .about-comment {
+      font-family: $font-jetbrains-mono;
+      font-size: 14px;
+      font-style: italic;
+      line-height: 1.8;
     }
 
-    .service-item {
-      width: 100%;
-      background-color: $colorBlack;
-      padding: 30px 15px;
-      border-radius: 4px;
-      text-align: center;
-      border-radius: 1pxsolid $colorGray;
-      transition: all 0.3s ease;
+    .about-comment-line {
+      color: $codeComment;
+      margin: 0;
+      padding-left: 2ch;
+      text-indent: -2ch;
+    }
 
-      .icon {
-        width: 60px;
-        height: 60px;
-        display: block;
-        margin: 0 auto 1rem;
-        text-align: center;
-        transition: all 0.3s ease;
-        border-radius: 50%;
+    .about-comment-marker {
+      font-style: normal;
+    }
 
-        .icons {
-          font-size: 40px;
-          line-height: 60px;
-          transition: all 0.3s ease;
-        }
+    .json-card {
+      margin-top: 32px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid hsl(0deg, 0%, 100%, 0.08);
+      background: rgba($colorBackground, 0.6);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px -24px rgb(0, 0, 0, 0.6);
+    }
+
+    .json-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: hsl(0deg, 0%, 100%, 0.04);
+      border-bottom: 1px solid hsl(0deg, 0%, 100%, 0.08);
+    }
+
+    .json-card-filename {
+      margin-left: 8px;
+      font-family: $font-jetbrains-mono;
+      font-size: 14px;
+      color: hsl(0deg, 0%, 100%, 0.5);
+    }
+
+    .json-card-body {
+      padding: 20px 24px;
+      font-family: $font-jetbrains-mono;
+      font-size: clamp(13px, 1.6vw, 15px);
+      font-weight: 600;
+      line-height: 1.8;
+
+      .code-row-indent {
+        padding-left: 2ch;
       }
 
-      h4 {
-        font-size: 18px;
-        margin-bottom: 15px;
-        color: $colorRed;
-        font-weight: 700;
-        text-transform: capitalize;
-      }
-
-      p {
-        font-size: 16px;
-        color: $colorGray;
-        line-height: 25px;
-        margin: 0;
+      .code-row-indent-2 {
+        padding-left: 4ch;
       }
     }
   }
+
 }

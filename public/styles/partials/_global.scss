@@ -7,17 +7,114 @@
   outline: none;
 }
 
+/* Respect the OS-level "reduce motion" preference — stops the looping
+   glow/float/blink animations and shortens transitions site-wide. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   background: $colorBlack;
   color: $colorWhite;
-  font-family: 'Poppins', sans-serif;
+  font-family: $font-nunito;
   line-height: 1.7;
   font-size: 16px;
   font-weight: 300;
 }
 
+/* Shared ambient background (glow + dot grid) behind every page */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.page-bg-glow {
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba($colorRed, 0.16) 0%, transparent 65%);
+  animation: page-bg-pulse 7s ease-in-out infinite;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -300px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(99, 60, 210, 0.14) 0%, transparent 65%);
+    animation: page-bg-pulse 9s ease-in-out infinite reverse;
+  }
+
+  @media #{$sm} {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+@keyframes page-bg-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.1); }
+}
+
+.page-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(hsl(0deg, 0%, 100%, 0.045) 1px, transparent 1px);
+  background-size: 36px 36px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba($colorBlack, 0.65) 100%);
+  }
+}
+
+/* Floating tech icons — used on Home and, with a different icon set per
+   page, on other pages too (see components/TechBackground.tsx) */
+.tech-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.tech-bg-icon {
+  position: absolute;
+  display: flex;
+  color: hsl(0deg, 0%, 100%, 0.14);
+  filter: drop-shadow(0 0 8px rgba($colorRed, 0.15));
+  animation: tech-float 10s ease-in-out infinite;
+}
+
+@keyframes tech-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.75; }
+  50%       { transform: translateY(-22px) rotate(6deg); opacity: 1; }
+}
+
+
 li {
   list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -33,6 +130,8 @@ h6 {
   color: $colorWhite;
   margin: 0;
   padding: 0;
+  font-family: $font-nunito;
+  letter-spacing: -0.02em;
 }
 
 .full-screen {
@@ -43,17 +142,29 @@ h6 {
   max-width: 1200px;
   width: 100%;
   margin: auto;
+
+  /* Reserve clearance from the fixed .float-icons column on the right
+     edge. Above ~1328px the container's own centered gutter (its
+     max-width falls short of the viewport) already keeps content clear;
+     below that, the container fills the viewport edge-to-edge and its
+     content (hero text, about-info, ex-tab, contact cards, ...) can run
+     right under the floating icons. Confirmed via real bounding-box
+     measurement at each breakpoint, not just estimated. */
+  @media #{$lg} {
+    padding-right: 32px;
+  }
+
+  @media #{$xsm} {
+    padding-right: 46px;
+  }
 }
 
 .section {
-  width: calc(100% - 80px);
-  top: 0;
-  left: 80px;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  inset: 0 0 0 0;
   z-index: 0;
   opacity: 1;
-  padding: 0 50px;
+  padding: 0 50px 110px;
   transition: all 0.4s ease;
 
   @media #{$sm} {
@@ -119,7 +230,12 @@ h6 {
   letter-spacing: 0.3px;
   cursor: pointer;
   background: $colorRed;
-  color: $colorWhite;
+  color: $colorBlack;
+
+  &:focus-visible {
+    outline: 2px solid $outlineRed;
+    outline-offset: 2px;
+  }
 
   @media #{$sm} {
     padding: 0 20px;
@@ -161,10 +277,6 @@ h6 {
   flex: 0 0 auto;
 }
 
-.copyright__text {
-  color: $colorRed;
-}
-
 .w-35 {
   width: 35%;
   flex: 0 0 auto;
@@ -179,54 +291,63 @@ h6 {
   margin-left: auto;
 }
 
-.mobile-header {
-  display: none;
-  position: relative;
-  padding: 20px;
-  z-index: 11;
-
-  @media #{$sm} {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .toggle-menu {
-    width: 60px;
-    height: 60px;
-    position: relative;
-    border-radius: 50%;
-    padding: 0;
-    background: $colorRed;
-    border: none;
-    cursor: pointer;
-    margin-left: auto;
-
-    .w-40 {
-      width: 40px;
-    }
+/* Stack grid utility columns on mobile/tablet so fixed-percentage
+   columns don't squeeze content or force horizontal overflow. */
+@media #{$sm} {
+  .col-6,
+  .w-35,
+  .w-60 {
+    width: 100%;
   }
 }
 
 .logo {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
   a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
     background: $colorRed;
-    color: $colorWhite;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    display: inline-block;
-    text-align: center;
-    font-size: 42px;
-    font-weight: 700;
+    color: $colorBlack;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: $font-nunito;
     text-decoration: none;
     text-transform: uppercase;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
 
     &:focus-visible {
       outline: 2px solid $colorWhite;
-      outline-offset: -2px;
+      outline-offset: 2px;
     }
   }
+}
+
+/* Visually hidden but still announced by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .skip-link {
@@ -252,61 +373,252 @@ h6 {
   white-space: nowrap;
 }
 
-.information {
-  a {
-    margin: 0;
-    color: #fff;
-    font-weight: 400;
+/* "Traffic light" window dots — the macOS-style red/yellow/green trio
+   used on the About page's JSON card, the Experience page's terminal,
+   and the Work page's project card. Shared here (rather than scoped to
+   one page's partial) since all three actually use it. */
+.window-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.window-dot-red {
+  background: #ff5f56;
+}
+
+.window-dot-yellow {
+  background: #ffbd2e;
+}
+
+.window-dot-green {
+  background: #27c93f;
+}
+
+/* Terminal-styled card — used by the Experience page's role detail panel
+   and the 404 page. Shared here (rather than scoped to one page's
+   partial) since more than one page actually uses it. */
+.terminal {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid hsl(0deg, 0%, 100%, 0.08);
+  background: rgba($colorBackground, 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px -24px rgb(0, 0, 0, 0.6);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: hsl(0deg, 0%, 100%, 0.04);
+  border-bottom: 1px solid hsl(0deg, 0%, 100%, 0.08);
+}
+
+.terminal-title {
+  margin-left: 8px;
+  font-family: $font-jetbrains-mono;
+  font-size: 14px;
+  color: hsl(0deg, 0%, 100%, 0.5);
+}
+
+.terminal-body {
+  padding: 20px 24px;
+  font-family: $font-jetbrains-mono;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.terminal-line {
+  color: hsl(0deg, 0%, 100%, 0.85);
+  margin: 0 0 4px;
+  /* The prompt+path+cmd spans butt up against each other with no space
+     (e.g. "suman@career:~/experience/zepling-it-pvt-ltd$"), so a long
+     slugified company name has no natural break point. Force one so it
+     wraps instead of getting clipped by .terminal's overflow:hidden on
+     narrow viewports. */
+  overflow-wrap: anywhere;
+}
+
+.terminal-line-error {
+  color: #ff6b6b;
+}
+
+.terminal-prompt {
+  color: $colorGreen;
+  font-weight: 700;
+}
+
+.terminal-path {
+  color: $codeBoolean;
+}
+
+.terminal-cmd {
+  color: $colorWhite;
+}
+
+.terminal-output {
+  margin: 6px 0 14px;
+  padding-left: 1ch;
+
+  .code-row-indent {
+    padding-left: 2ch;
+  }
+}
+
+.terminal-log {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 14px;
+
+  li {
+    display: flex;
+    gap: 10px;
+    padding: 3px 0;
     font-size: 14px;
-    transition: 0.3s;
+    line-height: 1.6;
+  }
+}
 
-    &:last-child {
-      margin-left: 40px;
-    }
+.terminal-hash {
+  flex-shrink: 0;
+  color: $codeAttribute;
+}
 
-    &:hover {
-      color: $colorRed;
-    }
+.terminal-log-msg {
+  color: hsl(0deg, 0%, 100%, 0.7);
+}
 
-    &:focus-visible {
-      outline: 2px solid $outlineRed;
-    }
+
+/* Floating contact/social icons — fixed circular stack on the right edge */
+.float-icons {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 90;
+
+  @media #{$xsm} {
+    right: 12px;
+    gap: 8px;
+  }
+}
+
+/* react-tooltip portal — must always render above the dock (222),
+   floating icons (90), and every other layer on the site. */
+#top-menu-tooltip {
+  z-index: 9999 !important;
+}
+
+.float-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba($colorBlack, 0.55);
+  backdrop-filter: blur(16px);
+  border: 1px solid hsl(0deg, 0%, 100%, 0.1);
+  color: $colorWhite;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    background: rgba($colorBlack, 0.85);
+    border-color: hsl(0deg, 0%, 100%, 0.35);
+    transform: scale(1.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $outlineRed;
+    outline-offset: 2px;
+  }
+
+  @media #{$xsm} {
+    width: 38px;
+    height: 38px;
 
     svg {
-      color: #fff;
-      width: 24px;
-      height: 24px;
+      width: 18px;
+      height: 18px;
     }
   }
 }
 
-.language {
-  li {
-    &.active {
-      background: $colorRed;
-    }
+.lang-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: hsl(0deg, 0%, 100%, 0.05);
+  border: 1px solid hsl(0deg, 0%, 100%, 0.08);
+  border-radius: 999px;
+  padding: 3px;
+}
 
-    &:last-child {
-      margin-left: 10px;
-    }
+.lang-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+  background: $colorRed;
+  border-radius: 999px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
 
-    button {
-      color: #fff;
-      font-size: 14px;
-      padding: 5px 8px;
-      // Button resets
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-      line-height: inherit;
-      display: inline-block;
-      text-decoration: none;
+.lang-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  border: none;
+  background: transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: $font-nunito;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  z-index: 1;
+  transition: color 0.25s ease;
 
-      &:hover {
-        opacity: 0.8;
-      }
-    }
+  .lang-flag {
+    font-size: 15px;
+    line-height: 1;
+  }
+
+  .lang-label {
+    color: hsl(0deg, 0%, 100%, 0.4);
+    transition: color 0.25s ease;
+  }
+
+  &.active .lang-label {
+    color: $colorBlack;
+  }
+
+  &:not(.active):hover .lang-label {
+    color: hsl(0deg, 0%, 100%, 0.75);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $outlineRed;
+    outline-offset: 2px;
+  }
+
+  @media #{$sm} {
+    padding: 8px 14px;
   }
 }
 

@@ -1,11 +1,11 @@
 "use client";
 import React, { FC, ReactNode } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import { useTranslation } from "react-i18next";
+import NavDock from "./NavDock";
 import menus from "../data/menus";
-import MobileMenu from "./MobileMenu";
 import Link from "next/link";
-import TopHeader from "./TopHeader";
+import FloatingContact from "./FloatingContact";
+import PageBackground from "./PageBackground";
 
 
 interface LayoutProps {
@@ -13,18 +13,18 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ children }) => {
+    const { t } = useTranslation();
     const mainContentRef = React.useRef<HTMLElement>(null);
 
     return (
         <div className='page-wrapper' data-testid='page-wrapper'>
-            <Link href="#main-content" className="absolute skip-link">Skip to content</Link>
-            <MobileMenu />
-            <Header menus={menus} />
+            <PageBackground />
+            <Link href="#main-content" className="absolute skip-link">{t("skip_to_content")}</Link>
+            <NavDock menus={menus} />
             <main id="main-content" ref={mainContentRef} tabIndex={-1}>
-                    <TopHeader topHeaderMenus={[]} />
+                    <FloatingContact />
                     {children}
             </main>
-            <Footer />
         </div>
   );
 };

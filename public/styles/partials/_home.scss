@@ -1,89 +1,219 @@
+/* FloatingContact's lang-switcher bar sits above .home-section in
+   normal flow. Fit the home page to exactly one viewport tall when the
+   content allows it — but min-height (not height) plus leaving
+   .home-section's min-height at its default `auto` means the box still
+   grows, and the page still scrolls normally, if the content doesn't
+   fit at a given screen size (e.g. a very short viewport). */
+main:has(> .home-section) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  > .py-20 {
+    flex: 0 0 auto;
+  }
+}
+
 .home-section {
   position: relative;
   overflow: hidden;
-  flex-direction: column;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  background: $colorBlack;
 
-  .introduction {
-    .type-text {
-      h6 {
-        font-size: 20px;
-        font-weight: 400;
-        margin: 0 0 12px;
+  /* Floor (90px) guarantees the fixed dock never overlaps content, even
+     on a short viewport — it must not shrink below the dock's own
+     footprint. The dvh-based preferred value just adds breathing room
+     on taller screens, capped at 100px so it doesn't grow unbounded. */
+  &.section {
+    padding-bottom: clamp(90px, 12dvh, 100px);
+  }
 
-        @media #{$xsm} {
-          margin-bottom: 6px;
-        }
-      }
+  /* Cyan glow — bottom-left */
+  .hero-glow {
+    position: absolute;
+    bottom: -150px;
+    left: -100px;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($colorRed, 0.16) 0%, transparent 65%);
+    pointer-events: none;
+    animation: glow-pulse 7s ease-in-out infinite;
+    z-index: 0;
 
-      h1 {
-        font-size: 70px;
-        font-weight: 700;
-        line-height: 1;
-        margin: 0 0 12px;
-        text-transform: uppercase;
-
-        @media #{$sm} {
-          font-size: 40px;
-        }
-
-        @media #{$xsm} {
-          margin-bottom: 6px;
-          font-size: 36px;
-        }
-      }
-
-      h4 {
-        margin-bottom: 12px;
-        font-size: 24px;
-        font-weight: 500;
-        color: $colorRed;
-
-        @media #{$xsm} {
-          margin-bottom: 6px;
-        }
-      }
-
-      .desc {
-        color: $colorGray;
-        //max-width: 450px;
-
-        @media #{$sm} {
-          font-size: 14px;
-        }
-      }
-
-      .home-btn {
-        margin-top: 1.5rem;
-        display: flex;
-
-        @media #{$xsm} {
-          margin-top: 0.75rem;
-        }
-
-        @media #{$tiny} {
-          flex-direction: column;
-        }
-      }
+    @media #{$sm} {
+      width: 380px;
+      height: 380px;
     }
   }
 
-  .home-image {
-    position: relative;
-    margin-bottom: 120px;
-    z-index: 1;
+  /* Indigo glow — top-right */
+  .hero-glow::after {
+    content: '';
+    position: absolute;
+    top: -300px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(99, 60, 210, 0.14) 0%, transparent 65%);
+    animation: glow-pulse 9s ease-in-out infinite reverse;
+  }
 
-    //&:after {
-    //  position: absolute;
-    //  left: 50%;
-    //  bottom: -120px;
-    //  content: "";
-    //  height: 500px;
-    //  width: 500px;
-    //  transform: translateX(-50%);
-    //  background: url("/img/background.png") no-repeat center;
-    //  border-radius: 50%;
-    //  z-index: -1;
-    //  background-size: cover;
-    //}
+  /* Teal glow — center, faint */
+  .hero-glow::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(45, 212, 191, 0.08) 0%, transparent 70%);
+    animation: glow-pulse 11s ease-in-out infinite;
+  }
+
+  /* Dot grid */
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(hsl(0deg, 0%, 100%, 0.045) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Vignette edges */
+  .hero-grid-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba($colorBlack, 0.65) 100%);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    padding-block: clamp(16px, 6dvh, 60px);
   }
 }
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.1); }
+}
+
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 780px;
+}
+
+/* Badge — availability status, filled for emphasis */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $colorBlack;
+  background: $colorRed;
+  border-radius: 999px;
+  padding: 7px 18px 7px 14px;
+  box-shadow: 0 8px 20px -6px rgba($colorRed, 0.5);
+  margin-bottom: clamp(12px, 4dvh, 32px);
+}
+
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $colorBlack;
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+/* Greeting, styled as a code comment */
+.hero-code-comment {
+  font-family: $font-jetbrains-mono;
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-style: italic;
+  color: $codeComment;
+  margin: 0 0 clamp(8px, 3dvh, 16px);
+}
+
+/* Name + details, styled as a multi-variable code declaration */
+.hero-code-block {
+  font-family: $font-jetbrains-mono;
+  font-size: clamp(13px, min(2vw, 2.4dvh), 20px);
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0 0 clamp(8px, 3dvh, 32px);
+}
+
+/* Block-level rows so "ch" padding lines up with the monospace grid —
+   a flex row's gap doesn't measure in character widths, which is what
+   broke the vertical alignment between declarations. */
+.code-row {
+  display: block;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Aligns under "name" — "const " is exactly 6 monospace characters */
+.code-row-indent {
+  padding-left: 6ch;
+}
+
+.code-keyword {
+  color: $codeKeyword;
+}
+
+.code-var {
+  color: $codeVar;
+}
+
+.code-op {
+  color: hsl(0deg, 0%, 100%, 0.6);
+}
+
+.code-string {
+  color: $codeString;
+}
+
+.code-number {
+  color: $codeNumber;
+}
+
+.code-boolean {
+  color: $codeBoolean;
+}
+
+.hero-name-accent {
+  font-size: 1.35em;
+  font-weight: 700;
+  background: linear-gradient(135deg, $colorRed 0%, lighten($colorRed, 20%) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.code-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  background: $colorRed;
+  margin-left: 2px;
+  animation: blink 1.1s step-end infinite;
+}
+
+

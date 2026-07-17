@@ -1,16 +1,12 @@
 enum Icon {
-  HomeIcon = "HomeIcon",
-  IdentificationIcon = "IdentificationIcon",
-  CollectionIcon = "CollectionIcon",
-  DesktopComputerIcon = "DesktopComputerIcon",
-  PhoneOutgoingIcon = "PhoneOutgoingIcon",
-  LocationMarkerIcon = "LocationMarkerIcon",
-  DeviceMobileIcon = "DeviceMobileIcon",
-  MailIcon = "MailIcon",
-  SpeakerphoneIcon = "SpeakerphoneIcon",
-  CodeIcon = "CodeIcon",
-  DownloadIcon = "DownloadIcon",
-  EyeIcon = "EyeIcon",
+  HomeIcon = "MdHome",
+  IdentificationIcon = "MdPerson",
+  CollectionIcon = "MdApps",
+  DesktopComputerIcon = "MdWork",
+  PhoneOutgoingIcon = "MdPhoneForwarded",
+  MailIcon = "MdEmail",
+  LegalIcon = "MdGavel",
+  DownloadIcon = "MdDownload",
 }
 
 export default Icon;

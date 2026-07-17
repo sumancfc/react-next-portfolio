@@ -1,19 +1,37 @@
-import * as HIcons from "@heroicons/react/outline";
+import {
+  MdHome,
+  MdPerson,
+  MdApps,
+  MdWork,
+  MdPhoneForwarded,
+  MdEmail,
+  MdGavel,
+  MdDownload,
+} from "react-icons/md";
+
+// Named imports only — importing * from react-icons/md pulls the entire
+// Material Design icon set (thousands of icons) into the client bundle.
+const iconMap = {
+  MdHome,
+  MdPerson,
+  MdApps,
+  MdWork,
+  MdPhoneForwarded,
+  MdEmail,
+  MdGavel,
+  MdDownload,
+};
 
 interface HeroIconsProps {
-  icon: keyof typeof HIcons; // keyof typeof HIcons ensures the icon prop is a key of the HIcons object.
+  icon: string;
 }
 
-const HeroIcons: React.FC<HeroIconsProps> = (props) => {
-  const { ...icons } = HIcons;
-  const TheIcon = icons[props.icon];
+const HeroIcons: React.FC<HeroIconsProps> = ({ icon }) => {
+  const IconComponent = iconMap[icon as keyof typeof iconMap] as React.ElementType;
 
-  // Check if the icon exists
-  if (!TheIcon) {
-    return null;
-  }
+  if (!IconComponent) return null;
 
-  return <TheIcon className='icons' aria-hidden='true' focusable="false" />;
+  return <IconComponent className='icons' aria-hidden='true' />;
 };
 
 export default HeroIcons;
