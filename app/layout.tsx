@@ -1,8 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
 import { Nunito, JetBrains_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import I18nProvider from "../components/I18nProvider";
 import "../public/styles/style.scss";
 
@@ -36,8 +34,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <I18nProvider>
           {children}
         </I18nProvider>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
