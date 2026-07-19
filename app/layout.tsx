@@ -34,7 +34,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <I18nProvider>
           {children}
         </I18nProvider>
-        <script defer          src="https://cloud.umami.is/script.js"     data-website-id="3a3c24e7-9e88-439d-b810-f85f94f717f0"></script>
+        <Script
+         src="https://cloud.umami.is/script.js"
+         data-website-id="3a3c24e7-9e88-439d-b810-f85f94f717f0"
+         strategy="afterInteractive"
+        />
       </body>
     </html>
   );
