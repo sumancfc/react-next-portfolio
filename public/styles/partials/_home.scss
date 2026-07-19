@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 /* FloatingContact's lang-switcher bar sits above .home-section in
    normal flow. Fit the home page to exactly one viewport tall when the
    content allows it — but min-height (not height) plus leaving

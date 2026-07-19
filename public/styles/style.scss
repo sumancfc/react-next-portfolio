@@ -2,14 +2,14 @@
    external Google Fonts request — no extra round trip, no render block,
    no layout shift. See $font-nunito / $font-jetbrains-mono below. */
 
-@import "partials/variables";
-@import "partials/global";
-@import "partials/dock";
-@import "partials/home";
-@import "partials/about";
-@import "partials/experience";
-@import "partials/work";
-@import "partials/blog";
-@import "partials/contact";
-@import "partials/impressum";
-@import "partials/notfound";
+@use "partials/variables";
+@use "partials/global";
+@use "partials/dock";
+@use "partials/home";
+@use "partials/about";
+@use "partials/experience";
+@use "partials/work";
+@use "partials/blog";
+@use "partials/contact";
+@use "partials/impressum";
+@use "partials/notfound";

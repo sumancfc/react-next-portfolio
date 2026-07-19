@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 /* Same trick as Home: the language-switcher bar above .contact-section
    adds real height, so fit <main> to one viewport tall when the (short)
    content allows it. min-height (not height), and leaving
