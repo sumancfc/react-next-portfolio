@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import Script from "next/script";
 import { Nunito, JetBrains_Mono } from "next/font/google";
 import I18nProvider from "../components/I18nProvider";
 import "../public/styles/style.scss";

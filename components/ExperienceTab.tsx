@@ -31,7 +31,7 @@ const ExperienceTab: React.FC<ExperienceTabProps> = ({ experiences }) => {
   const prevActive = useRef(0);
   const tabListRef = useRef<HTMLDivElement>(null);
 
-  function select(idx: number) {
+  const select = React.useCallback((idx: number) => {
     if (idx === active) return;
     setVisible(false);
     setTimeout(() => {
@@ -39,7 +39,7 @@ const ExperienceTab: React.FC<ExperienceTabProps> = ({ experiences }) => {
       setActive(idx);
       setVisible(true);
     }, 180);
-  }
+  }, [active]);
 
   function scrollTabs(direction: 1 | -1) {
     tabListRef.current?.scrollBy({ left: direction * 160, behavior: "smooth" });
@@ -56,7 +56,7 @@ const ExperienceTab: React.FC<ExperienceTabProps> = ({ experiences }) => {
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [active]);
+  }, [active, experiences.length, select]);
 
   const exp = experiences[active];
   const path = slugify(exp.company);
