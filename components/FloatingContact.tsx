@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useTranslation } from 'react-i18next';
 import HeroIcons from './Icons';
@@ -10,22 +10,27 @@ import { TopHeaderMenu } from "../data/interfaces";
 import socials from "../data/socials";
 import { persistLanguagePreference } from "../lib/languagePreference";
 
+const languageOptions = [
+  { code: 'de', flag: '🇩🇪', label: 'DE' },
+  { code: 'en', flag: '🇬🇧', label: 'EN' },
+];
+
 const FloatingContact: React.FC = () => {
   const { t, i18n } = useTranslation();
 
-  const handleLanguageChange = (lng: string) => {
+  const handleLanguageChange = useCallback((lng: string) => {
     i18n.changeLanguage(lng);
     persistLanguagePreference(lng);
-  };
+  }, [i18n]);
 
-  const contactLinks: TopHeaderMenu[] = [
+  const contactLinks = useMemo<TopHeaderMenu[]>(() => [
     {
       id: 2,
       title: t('email_address'),
       icon: Icon.MailIcon,
       link: 'mailto:sumanstha999@gmail.com',
     }
-  ];
+  ], [t]);
 
   return (
     <>
@@ -36,10 +41,7 @@ const FloatingContact: React.FC = () => {
               className='lang-slider'
               style={{ transform: `translateX(${i18n.language === 'en' ? '100%' : '0%'})` }}
             />
-            {[
-              { code: 'de', flag: '🇩🇪', label: 'DE' },
-              { code: 'en', flag: '🇬🇧', label: 'EN' },
-            ].map(({ code, flag, label }) => (
+            {languageOptions.map(({ code, flag, label }) => (
               <button
                 key={code}
                 onClick={() => handleLanguageChange(code)}
