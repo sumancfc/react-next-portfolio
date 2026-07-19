@@ -1,6 +1,8 @@
 import React from "react";
 import { Metadata } from "next";
 import { Nunito, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import I18nProvider from "../components/I18nProvider";
 import "../public/styles/style.scss";
 
@@ -18,12 +20,6 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-/* Static (not per-request) so every page keeps statically generating —
-   reading the language cookie here would force Next.js to render every
-   route dynamically just to translate a <title> tag, which isn't worth
-   losing static generation for. German, matching the site's default
-   language (lib/i18n.ts); the actual page content still translates
-   correctly client-side regardless of this tag's language. */
 export const metadata: Metadata = {
   title: {
     default: "Suman Shrestha | Software-Entwickler",
@@ -38,8 +34,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='de' className={`${nunito.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <body>
         <I18nProvider>
-          {children} {/* This renders HomePage, which then renders Layout */}
+          {children}
         </I18nProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
