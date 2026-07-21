@@ -36,9 +36,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </I18nProvider>
         <Script
-         src="https://cloud.umami.is/script.js"
-         data-website-id="3a3c24e7-9e88-439d-b810-f85f94f717f0"
-         strategy="afterInteractive"
+          src="https://cloud.umami.is/script.js"
+          data-website-id="3a3c24e7-9e88-439d-b810-f85f94f717f0"
+          strategy="afterInteractive"
         />
       </body>
     </html>
